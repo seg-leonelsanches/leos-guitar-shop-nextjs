@@ -1,5 +1,6 @@
 {
   "name": "leos-guitar-shop-ts",
+  "description": "Leo's Coolest Guitar Website",
   "version": "0.1.0",
   "private": true,
   "scripts": {

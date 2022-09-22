@@ -25,7 +25,7 @@ const Home: NextPage = () => {
 
         <div className='row'>
           <div className='col mt-5'>
-            <GuitarCard />
+            <GuitarCard model='Gibson Test' manufacturer='Gibson' price={500} mainImage='https://cdn.pixabay.com/photo/2016/10/12/23/22/electric-guitar-1736291_960_720.jpg' />
           </div>
         </div>
       </main>
