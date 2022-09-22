@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Link from 'next/link'
+
 export const TopNav = () => (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
         <div className="container-fluid">
@@ -16,10 +18,12 @@ export const TopNav = () => (
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
-                                <i className="bi bi-person"> </i>
-                                Log in
-                            </a>
+                            <Link className="nav-link" href="/login">
+                                <a className="nav-link">
+                                    <i className="bi bi-person"> </i>
+                                    Log in
+                                </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
