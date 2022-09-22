@@ -1,25 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-import useSWR from 'swr'
-import axios from 'axios'
-
-import { GuitarCard } from '../components/guitar-card'
 import styles from '../styles/Home.module.css'
-import { IGuitar } from '../models'
 
-const fetcher = (url: string) => axios.get(url).then(res => res.data)
-
-const GuitarCatalog: Function = () => {
-  // `data` will always be available as it's in `fallback`.
-  const { data } = useSWR('/api/catalog', fetcher)
-  if (!data) return <>Loading...</>
-
-  const guitarCatalog: IGuitar[] = data
-  return <>{guitarCatalog.map((g: IGuitar) => (
-    <GuitarCard id={g.id} model={g.model} manufacturer={g.manufacturer} price={g.price} mainImage={g.mainImage} key={g.id} />
-  ))}</>
-}
+import { GuitarCatalog } from '../components/index-page'
 
 const Home: NextPage = () => {
   return (
