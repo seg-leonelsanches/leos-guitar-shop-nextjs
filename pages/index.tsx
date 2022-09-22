@@ -12,12 +12,12 @@ const Home: NextPage = () => {
         <title>Leo's Guitar Shop</title>
       </Head>
 
-      <main className={styles.main}>
+      <main className='main'>
         <div className='row'>
           <div className='col'>
-            <h1 className={styles.title}>
-              Welcome to Leo's Guitar Shop!
-            </h1>
+            <h2 className={styles.title}>
+              Featured
+            </h2>
           </div>
         </div>
 
@@ -27,16 +27,6 @@ const Home: NextPage = () => {
           </div>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://segment.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by Segment
-        </a>
-      </footer>
     </div>
   )
 }

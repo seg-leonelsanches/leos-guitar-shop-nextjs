@@ -18,6 +18,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     <TopNav />
     <Header />
     <Component {...pageProps} />
+    <footer className='footer'>
+        <a
+          href="https://segment.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by Segment
+        </a>
+      </footer>
   </>
 }
 

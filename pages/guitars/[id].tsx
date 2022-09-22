@@ -12,7 +12,7 @@ const GuitarDetails: NextPage = () => {
         <Head>
             <title>Product details - Leo's Guitar Shop</title>
         </Head>
-        <div className='container'>
+        <div className='container mb-5'>
             <GuitarSpecs id={Number(id)} />
         </div>
     </>
