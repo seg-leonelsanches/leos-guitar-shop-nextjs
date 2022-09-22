@@ -7,6 +7,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<IGuitar[]>
 ) {
-  const allGuitarsArray: IGuitar[] = Object.values(allGuitars) as any
-  res.status(200).json(allGuitarsArray)
+  const _allGuitars: IGuitar[] = allGuitars['default']
+  res.status(200).json(_allGuitars)
 }

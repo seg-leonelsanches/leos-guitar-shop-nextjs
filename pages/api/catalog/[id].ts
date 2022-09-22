@@ -6,7 +6,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<IGuitar>
 ) {
-  const _allGuitars: { [key: number]: IGuitar } = allGuitars
+  const _allGuitars: IGuitar[] = allGuitars['default']
   const { id } = req.query
-  res.status(200).json(_allGuitars[Number(id)])
+  res.status(200).json(_allGuitars.filter(g => g.id == id)[0])
 }
