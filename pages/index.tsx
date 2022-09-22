@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+
+import { GuitarCard } from '../components/guitar-card'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -13,9 +14,20 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Leo's Guitar Shop!
-        </h1>
+        <div className='row'>
+          <div className='col'>
+            <h1 className={styles.title}>
+              Welcome to Leo's Guitar Shop!
+            </h1>
+          </div>
+        </div>
+
+
+        <div className='row'>
+          <div className='col mt-5'>
+            <GuitarCard />
+          </div>
+        </div>
       </main>
 
       <footer className={styles.footer}>
