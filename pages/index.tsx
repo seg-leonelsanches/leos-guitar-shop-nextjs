@@ -21,10 +21,8 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className='row'>
-          <div className='col mt-5'>
+        <div className='row mt-5'>
             <GuitarCatalog />
-          </div>
         </div>
       </main>
     </div>
