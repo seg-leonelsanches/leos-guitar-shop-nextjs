@@ -10,8 +10,6 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Head>
         <title>Leo's Guitar Shop</title>
-        <meta name="description" content="Crafted using Next.js to test Segment" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
