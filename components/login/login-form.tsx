@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+
 import { useMobxStores } from '../../data/stores';
 
 export const LoginForm: React.FunctionComponent = () => {
     const { userLoginStore } = useMobxStores()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const router = useRouter()
 
     const login: Function = () => {
         userLoginStore.setEmail(email);
         userLoginStore.setFirstName("Fred");
         userLoginStore.setLastName("Flintstone");
         userLoginStore.setLoggedIn(true);
+        router.push("/")
     }
 
     return <div className='col-lg-6'>
