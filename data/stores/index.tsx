@@ -4,23 +4,26 @@ import { UserLoginStore } from './user-login';
 
 let clientSideStores: any;
 
+export interface IStores {
+  userLoginStore: UserLoginStore
+}
+
 export function getStores(initialData = { storeInitialData: {} }) {
-  /* if (isServer) {
+  if (typeof window === 'undefined') {
     return {
-      postStore: new PostStore(initialData.postStoreInitialData),
-      uiStore: new UIStore(),
+      userLoginStore: new UserLoginStore(initialData.storeInitialData)
     };
-  } */
+  }
   if (!clientSideStores) {
     clientSideStores = {
-      userLoginStore: new UserLoginStore("leonel.sanches@segment.com", "Leonel", "Sanches"),
+      userLoginStore: new UserLoginStore(initialData.storeInitialData),
     };
   }
 
   return clientSideStores;
 }
 
-const StoreContext = React.createContext({} as UserLoginStore);
+const StoreContext = React.createContext({} as IStores);
 
 export function StoreProvider(props: any) {
   return <StoreContext.Provider value={props.value}>{props.children}</StoreContext.Provider>;

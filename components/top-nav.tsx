@@ -5,13 +5,13 @@ import { observer } from 'mobx-react';
 import { useMobxStores } from '../data/stores';
 
 const TopNavComponent = () => {
-    const { firstName, lastName, id } = useMobxStores();
+    const { userLoginStore } = useMobxStores();
 
     return <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
         <div className="container-fluid">
             <div className='row w-100 mt-2 d-flex justify-content-between'>
                 <div className='col my-2 mx-3'>
-                    <h6>{firstName} {lastName} ({id})</h6>
+                    <h6>{userLoginStore.firstName} {userLoginStore.lastName}</h6>
                 </div>
                 <div className='col'>
                     <ul className="navbar-nav float-end">

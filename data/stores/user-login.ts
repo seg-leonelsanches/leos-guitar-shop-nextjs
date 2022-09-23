@@ -1,4 +1,4 @@
-import { makeObservable, observable, reaction } from "mobx"
+import { makeObservable, observable, action } from "mobx"
 import uuid from "node-uuid"
 
 export class UserLoginStore {
@@ -11,22 +11,37 @@ export class UserLoginStore {
         this.transportLayer = transportLayer // Thing that can make server requests.
     } */
 
-    id: any = null
+    // id: any = null
     email: string = ""
     firstName: string = ""
     lastName: string = ""
 
-    constructor(email: string, firstName: string, lastName: string) {
+    constructor(initialData: any = {}) {
         makeObservable(this, {
-            id: observable,
+            // id: observable,
             email: observable,
             firstName: observable,
-            lastName: observable
+            lastName: observable,
+            setEmail: action,
+            setFirstName: action,
+            setLastName: action
         })
 
-        this.id = uuid.v4()
+        // this.id = uuid.v4()
+        this.email = initialData.email
+        this.firstName = initialData.firstName
+        this.lastName = initialData.lastName
+    }
+
+    setEmail(email: string) {
         this.email = email
+    }
+
+    setFirstName(firstName: string) {
         this.firstName = firstName
+    }
+
+    setLastName(lastName: string) {
         this.lastName = lastName
     }
 
@@ -35,6 +50,6 @@ export class UserLoginStore {
             email: this.email,
             firstName: this.firstName,
             lastName: this.lastName
-        };
+        }
     }
 }
