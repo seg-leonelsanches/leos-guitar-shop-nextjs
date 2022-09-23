@@ -1,4 +1,6 @@
 import { makeObservable, observable, action } from "mobx"
+import { makePersistable } from 'mobx-persist-store';
+
 import { IGuitar } from "../../models"
 import { GuitarModel } from "../state-models"
 
@@ -13,6 +15,11 @@ export class CartStore {
             removeOneGuitarById: action
         })
 
+        makePersistable(this, { 
+            name: 'CartStore', 
+            properties: ['guitars']
+        })
+        
         this.guitars = initialData.guitars
     }
 

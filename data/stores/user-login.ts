@@ -1,4 +1,5 @@
 import { makeObservable, observable, action } from "mobx"
+import { makePersistable } from 'mobx-persist-store';
 // import uuid from "node-uuid"
 
 export class UserLoginStore {
@@ -29,6 +30,11 @@ export class UserLoginStore {
             setLastName: action
         })
 
+        makePersistable(this, { 
+            name: 'UserLoginStore', 
+            properties: ['email', 'firstName', 'lastName', 'loggedIn']
+        })
+        
         // this.id = uuid.v4()
         this.email = initialData.email
         this.firstName = initialData.firstName
