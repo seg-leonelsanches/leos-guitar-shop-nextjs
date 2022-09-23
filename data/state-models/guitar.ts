@@ -1,5 +1,4 @@
 import { makeObservable, observable } from "mobx"
-import uuid from "node-uuid"
 
 export class GuitarModel {
     guitarId: number

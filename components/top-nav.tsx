@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Link from 'next/link'
+
 import { observer } from 'mobx-react';
 import { useMobxStores } from '../data/stores';
 
