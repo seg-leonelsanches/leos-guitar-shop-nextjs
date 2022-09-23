@@ -15,26 +15,35 @@ const TopNavComponent = () => {
                     <h6>Welcome{userLoginStore.loggedIn ? `, ${userLoginStore.firstName} ${userLoginStore.lastName}.` : '!'}</h6>
                 </div>
                 <div className='col'>
-                    {userLoginStore.loggedIn ?
-                        <ul className="navbar-nav float-end">
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/wishlist">
-                                    <a className="nav-link">
-                                        <i className="bi bi-bag-heart-fill"> </i>
-                                        Wishlist
-                                    </a>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/account">
-                                    <a className="nav-link">
-                                        <i className="bi bi-person-workspace"> </i>
-                                        My Account
-                                    </a>
-                                </Link>
-                            </li>
-                        </ul> :
-                        <ul className="navbar-nav float-end">
+                    <ul className="navbar-nav float-end">
+                        <li className="nav-item">
+                            <Link className="nav-link" href="/cart">
+                                <a className="nav-link">
+                                    <i className="bi bi-cart"> </i>
+                                    My Cart
+                                </a>
+                            </Link>
+                        </li>
+                        {userLoginStore.loggedIn ?
+                            <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" href="/wishlist">
+                                        <a className="nav-link">
+                                            <i className="bi bi-bag-heart-fill"> </i>
+                                            Wishlist
+                                        </a>
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" href="/account">
+                                        <a className="nav-link">
+                                            <i className="bi bi-person-workspace"> </i>
+                                            My Account
+                                        </a>
+                                    </Link>
+                                </li>
+                            </>
+                            :
                             <li className="nav-item">
                                 <Link className="nav-link" href="/login">
                                     <a className="nav-link">
@@ -43,8 +52,8 @@ const TopNavComponent = () => {
                                     </a>
                                 </Link>
                             </li>
-                        </ul>
-                    }
+                        }
+                    </ul>
                 </div>
             </div>
         </div>
