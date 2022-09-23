@@ -1,5 +1,5 @@
 import { makeObservable, observable, action } from "mobx"
-import uuid from "node-uuid"
+// import uuid from "node-uuid"
 
 export class UserLoginStore {
     // transportLayer
@@ -15,6 +15,7 @@ export class UserLoginStore {
     email: string = ""
     firstName: string = ""
     lastName: string = ""
+    loggedIn: boolean = false
 
     constructor(initialData: any = {}) {
         makeObservable(this, {
@@ -22,6 +23,7 @@ export class UserLoginStore {
             email: observable,
             firstName: observable,
             lastName: observable,
+            loggedIn: observable,
             setEmail: action,
             setFirstName: action,
             setLastName: action
@@ -31,6 +33,7 @@ export class UserLoginStore {
         this.email = initialData.email
         this.firstName = initialData.firstName
         this.lastName = initialData.lastName
+        this.loggedIn = initialData.loggedIn
     }
 
     setEmail(email: string) {
@@ -45,11 +48,23 @@ export class UserLoginStore {
         this.lastName = lastName
     }
 
+    setLoggedIn(loggedIn: boolean) {
+        this.loggedIn = loggedIn
+    }
+
+    logout() {
+        this.email = ""
+        this.firstName = ""
+        this.lastName = ""
+        this.loggedIn = false
+    }
+
     __data() {
         return {
             email: this.email,
             firstName: this.firstName,
-            lastName: this.lastName
+            lastName: this.lastName,
+            loggedIn: this.loggedIn
         }
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { CartStore } from './cart';
 
 import { UserLoginStore } from './user-login';
 
@@ -6,17 +7,20 @@ let clientSideStores: any;
 
 export interface IStores {
   userLoginStore: UserLoginStore
+  cartStore: CartStore
 }
 
-export function getStores(initialData = { storeInitialData: {} }) {
+export function getStores(initialData = { storeInitialData: {}, cartInitialData: {} }): IStores {
   if (typeof window === 'undefined') {
     return {
-      userLoginStore: new UserLoginStore(initialData.storeInitialData)
+      userLoginStore: new UserLoginStore(initialData.storeInitialData),
+      cartStore: new CartStore(initialData.cartInitialData)
     };
   }
   if (!clientSideStores) {
     clientSideStores = {
       userLoginStore: new UserLoginStore(initialData.storeInitialData),
+      cartStore: new CartStore(initialData.cartInitialData)
     };
   }
 

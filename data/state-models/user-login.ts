@@ -1,7 +1,7 @@
 import { makeObservable, observable } from "mobx"
 import uuid from "node-uuid"
 
-export class UserLogin {
+export class UserLoginModel {
     id: any = null
     email: string = ""
     firstName: string = ""
