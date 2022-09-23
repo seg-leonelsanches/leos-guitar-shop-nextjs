@@ -26,8 +26,8 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
     return <div className="row">
         <div className="col">
             <ReactFancyBox
-                thumbnail={guitar.mainImage}
-                image={guitar.mainImage} 
+                thumbnail={guitar.mainImage  || 'https://cdn.pixabay.com/photo/2017/01/31/23/08/classic-2028011_960_720.png'}
+                image={guitar.mainImage  || 'https://cdn.pixabay.com/photo/2017/01/31/23/08/classic-2028011_960_720.png'} 
                 showCloseBtn={false} />
         </div>
         <div className="col pt-5">

@@ -26,19 +26,19 @@ export class CartStore {
         existingGuitars[0].quantity += 1
     }
 
-    removeAllGuitarsById(guitar: IGuitar) {
-        this.guitars = this.guitars.filter(g => g.guitarId !== guitar.id)
+    removeAllGuitarsById(id: number) {
+        this.guitars = this.guitars.filter(g => g.guitarId !== id)
     }
 
-    removeOneGuitarById(guitar: IGuitar) {
-        const existingGuitars = this.guitars.filter(g => g.guitarId === guitar.id)
+    removeOneGuitarById(id: number) {
+        const existingGuitars = this.guitars.filter(g => g.guitarId === id)
         if (existingGuitars.length <= 0) {
             return
         }
 
         existingGuitars[0].quantity -= 1
         if (existingGuitars[0].quantity === 0) {
-            this.removeAllGuitarsById(guitar)
+            this.removeAllGuitarsById(id)
         }
     }
 }
