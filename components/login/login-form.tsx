@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 
+import { faker } from '@faker-js/faker';
+
 import { useMobxStores } from '../../data/stores';
 
 export const LoginForm: React.FunctionComponent = () => {
@@ -10,9 +12,9 @@ export const LoginForm: React.FunctionComponent = () => {
     const router = useRouter()
 
     const login: Function = () => {
-        userLoginStore.setEmail(email);
-        userLoginStore.setFirstName("Fred");
-        userLoginStore.setLastName("Flintstone");
+        userLoginStore.setEmail(faker.internet.email());
+        userLoginStore.setFirstName(faker.name.firstName());
+        userLoginStore.setLastName(faker.name.lastName());
         userLoginStore.setLoggedIn(true);
         router.push("/")
     }
