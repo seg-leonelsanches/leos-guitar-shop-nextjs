@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import { useMobxStores } from '../data/stores'
+import { WishlistDetails } from '../components/wishlist'
 
 const Wishlist: NextPage = () => {
     const { userLoginStore } = useMobxStores()
@@ -20,7 +21,7 @@ const Wishlist: NextPage = () => {
         </Head>
         <div className='container'>
             <div className='row'>
-                <h2>Wishlist</h2>
+                <WishlistDetails />
             </div>
         </div>
     </>

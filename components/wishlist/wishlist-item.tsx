@@ -4,20 +4,19 @@ import { observer } from 'mobx-react'
 
 import { useMobxStores } from '../../data/stores'
 
-export interface ICartItem {
+export interface IWishlistItem {
     id: number
     mainImage: string
     model: string
     manufacturer: string
     price: number
-    quantity: number
 }
 
-const CartItemComponent: React.FunctionComponent<ICartItem> = (props) => {
-    const { cartStore } = useMobxStores();
+const WishlistItemComponent: React.FunctionComponent<IWishlistItem> = (props) => {
+    const { wishlistStore } = useMobxStores();
 
     const remove = () => {
-        cartStore.removeOneGuitarById(props.id)
+        wishlistStore.removeGuitarById(props.id)
     }
 
     return <div className='row' key={props.id}>
@@ -31,7 +30,6 @@ const CartItemComponent: React.FunctionComponent<ICartItem> = (props) => {
                     <h5 className="card-title">{props.manufacturer}</h5>
                     <p className="card-text">{props.model}</p>
                     <p className="card-text">${props.price}</p>
-                    <p className="card-text"><small className="text-muted">Quantity: {props.quantity}</small></p>
                 </div>
                 <div className='card-footer'>
                     <button className='btn btn-danger float-end' onClick={() => remove()}>Remove</button>
@@ -42,4 +40,4 @@ const CartItemComponent: React.FunctionComponent<ICartItem> = (props) => {
 </div>
 }
 
-export const CartItem = observer(CartItemComponent)
+export const WishlistItem = observer(WishlistItemComponent)

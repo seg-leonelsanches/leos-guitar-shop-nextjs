@@ -7,7 +7,6 @@ import useSWR from 'swr'
 import { fetcher } from '../../infrastructure'
 import { IGuitar } from '../../models'
 import { CartItem } from './cart-item'
-import { getImageSize } from 'next/dist/server/image-optimizer'
 
 export interface ICartDetails {
 
