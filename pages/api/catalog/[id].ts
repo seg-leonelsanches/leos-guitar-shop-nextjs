@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { allGuitars } from '../../../data'
+import { allGuitars } from '../../../data/mocks'
 import { IGuitar } from '../../../models'
 
 export default function handler(

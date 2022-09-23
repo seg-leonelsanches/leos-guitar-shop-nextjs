@@ -1,4 +1,4 @@
-import { IGuitar } from "../models";
+import { IGuitar } from "../../models";
 
 export default [
     { id: 1, model: "Gibson Semi Acostic with tremolo", manufacturer: "Gibson", price: 650, mainImage: "https://cdn.pixabay.com/photo/2016/10/12/23/22/electric-guitar-1736291_960_720.jpg" },

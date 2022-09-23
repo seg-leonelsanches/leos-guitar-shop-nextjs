@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { allGuitars } from '../../../data'
+import { allGuitars } from '../../../data/mocks'
 import { IGuitar } from '../../../models'
 
 export default function handler(
