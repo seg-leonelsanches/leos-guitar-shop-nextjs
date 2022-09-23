@@ -10,6 +10,7 @@ export const LoginForm: React.FunctionComponent = () => {
         userLoginStore.setEmail(email);
         userLoginStore.setFirstName("Fred");
         userLoginStore.setLastName("Flintstone");
+        userLoginStore.setLoggedIn(true);
     }
 
     return <div className='col-lg-6'>

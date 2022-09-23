@@ -17,17 +17,25 @@ const TopNavComponent = () => {
                     <ul className="navbar-nav float-end">
                         <li className="nav-item">
                             <a className="nav-link" href="#">
-                            <i className="bi bi-bag-heart-fill"> </i>
+                                <i className="bi bi-bag-heart-fill"> </i>
                                 Wishlist
                             </a>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="/login">
-                                <a className="nav-link">
-                                    <i className="bi bi-person"> </i>
-                                    Log in
-                                </a>
-                            </Link>
+                            {userLoginStore.loggedIn ?
+                                <Link className="nav-link" href="/login">
+                                    <a className="nav-link">
+                                        <i className="bi bi-person-workspace"> </i>
+                                        My Account
+                                    </a>
+                                </Link> :
+                                <Link className="nav-link" href="/login">
+                                    <a className="nav-link">
+                                        <i className="bi bi-person"> </i>
+                                        Log in
+                                    </a>
+                                </Link>
+                            }
                         </li>
                     </ul>
                 </div>
