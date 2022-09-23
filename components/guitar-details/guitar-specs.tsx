@@ -20,7 +20,10 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
 
     const buy = () => {
         cartStore.addGuitar(guitar)
-        console.log(guitar, 'added')
+    }
+
+    const addToWishlist = () => {
+
     }
 
     return <div className="row">
@@ -37,6 +40,7 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
             <h5>Price: ${guitar.price}</h5>
             <hr />
             <button type="button" className="btn btn-primary" onClick={() => buy()}>Buy now</button>
+            <button type="button" className="btn btn-info" onClick={() => addToWishlist()}>Add to Wishlist</button>
         </div>
     </div>
 }

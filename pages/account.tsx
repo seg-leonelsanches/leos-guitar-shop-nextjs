@@ -23,11 +23,29 @@ const Account: NextPage = () => {
         <Head>
             <title>My Account - Leo's Guitar Shop</title>
         </Head>
-        <div className='container'>
+        <div className='container mb-5'>
             <div className='row'>
-                <button type='button' onClick={() => logout()}>
-                    Logout
-                </button>
+                <div className='col'>
+                    <table className='table table-dark'>
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>{userLoginStore.firstName} {userLoginStore.lastName}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>{userLoginStore.email}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                    <button type='button' className='btn btn-warning float-end' onClick={() => logout()}>
+                        Logout
+                    </button>
+                </div>
             </div>
         </div>
     </>
