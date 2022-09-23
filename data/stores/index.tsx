@@ -13,14 +13,14 @@ export function getStores(initialData = { storeInitialData: {} }) {
   } */
   if (!clientSideStores) {
     clientSideStores = {
-      userLoginStore: new UserLoginStore(initialData.storeInitialData),
+      userLoginStore: new UserLoginStore("leonel.sanches@segment.com", "Leonel", "Sanches"),
     };
   }
 
   return clientSideStores;
 }
 
-const StoreContext = React.createContext(null);
+const StoreContext = React.createContext({} as UserLoginStore);
 
 export function StoreProvider(props: any) {
   return <StoreContext.Provider value={props.value}>{props.children}</StoreContext.Provider>;

@@ -6,7 +6,6 @@ export class UserLogin {
     email: string = ""
     firstName: string = ""
     lastName: string = ""
-    saveHandler: any = null
 
     constructor(email: string, firstName: string, lastName: string) {
         makeObservable(this, {
