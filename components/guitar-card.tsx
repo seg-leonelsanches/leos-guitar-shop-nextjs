@@ -2,7 +2,7 @@ import React from 'react'
 
 import Link from 'next/link'
 
-import { IGuitar } from '../../models'
+import { IGuitar } from '../models'
 
 export const GuitarCard = (props: IGuitar) => (
     <div className="col-sm-6 col-md-3 card bg-dark" style={{ width: "18rem" }}>

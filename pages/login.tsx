@@ -9,7 +9,7 @@ const Login: NextPage = () => {
             <title>Login - Leo's Guitar Shop</title>
         </Head>
         <div className='container'>
-            <div className='row'>
+            <div className='row mb-5'>
                 <LoginForm />
                 <RegistrationForm />
             </div>

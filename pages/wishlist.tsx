@@ -12,7 +12,7 @@ const Wishlist: NextPage = () => {
 
     useEffect(() => {
         if (!userLoginStore.loggedIn) router.push("/login")
-    });
+    })
     
     return <>
         <Head>

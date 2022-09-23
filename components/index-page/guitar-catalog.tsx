@@ -2,7 +2,7 @@ import useSWR from "swr"
 
 import { fetcher } from "../../infrastructure"
 import { IGuitar } from "../../models"
-import { GuitarCard } from "./guitar-card"
+import { GuitarCard } from "../guitar-card"
 
 export const GuitarCatalog: React.FunctionComponent = () => {
     const { data } = useSWR('/api/catalog', fetcher)
