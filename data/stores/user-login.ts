@@ -1,5 +1,6 @@
 import { makeObservable, observable, action } from "mobx"
 import { makePersistable } from 'mobx-persist-store';
+import { UserAddressModel } from "../state-models/user-address";
 // import uuid from "node-uuid"
 
 export class UserLoginStore {
@@ -17,6 +18,7 @@ export class UserLoginStore {
     firstName: string = ""
     lastName: string = ""
     loggedIn: boolean = false
+    addressData?: UserAddressModel
 
     constructor(initialData: any = {}) {
         makeObservable(this, {
@@ -25,14 +27,16 @@ export class UserLoginStore {
             firstName: observable,
             lastName: observable,
             loggedIn: observable,
+            addressData: observable,
             setEmail: action,
             setFirstName: action,
-            setLastName: action
+            setLastName: action,
+            setAddressData: action
         })
 
         makePersistable(this, { 
             name: 'UserLoginStore', 
-            properties: ['email', 'firstName', 'lastName', 'loggedIn']
+            properties: ['email', 'firstName', 'lastName', 'loggedIn', 'addressData']
         })
         
         // this.id = uuid.v4()
@@ -56,6 +60,10 @@ export class UserLoginStore {
 
     setLoggedIn(loggedIn: boolean) {
         this.loggedIn = loggedIn
+    }
+
+    setAddressData(addressData: UserAddressModel) {
+        this.addressData = addressData
     }
 
     logout() {
