@@ -18,7 +18,7 @@ export class UserLoginStore {
     firstName: string = ""
     lastName: string = ""
     loggedIn: boolean = false
-    addressData?: UserAddressModel
+    addressData: UserAddressModel | null = null
 
     constructor(initialData: any = {}) {
         makeObservable(this, {

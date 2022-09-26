@@ -8,7 +8,7 @@ import App from 'next/app';
 // import type { AppProps } from 'next/app'
 import Head from "next/head"
 
-import { Header } from '../components'
+import { Footer, Header } from '../components'
 import { TopNav } from '../components/top-nav'
 import { getStores, StoreProvider } from '../data/stores';
 
@@ -58,18 +58,9 @@ class LeoApp extends App<AppProps> {
       <TopNav />
       <Header />
       <Component {...pageProps} />
-      <footer className='footer'>
-        <a
-          href="https://segment.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by Segment
-        </a>
-      </footer>
+      <Footer />
     </StoreProvider>
   }
 }
-
 
 export default LeoApp
