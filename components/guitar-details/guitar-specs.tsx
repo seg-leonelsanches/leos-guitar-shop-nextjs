@@ -12,7 +12,7 @@ export interface IGuitarSpecs {
 }
 
 export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
-    const { cartStore, wishlistStore } = useMobxStores()
+    const { cartStore, wishlistStore, userLoginStore } = useMobxStores()
     const { data } = useSWR(`/api/catalog/${props.id}`, fetcher)
     if (!data) return <>Loading...</>
 
@@ -20,17 +20,19 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
 
     const buy = () => {
         cartStore.addGuitar(guitar)
+        alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your cart.`)
     }
 
     const addToWishlist = () => {
         wishlistStore.addGuitar(guitar)
+        alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your wishlist.`)
     }
 
     return <div className="row">
         <div className="col">
             <ReactFancyBox
-                thumbnail={guitar.mainImage  || 'https://cdn.pixabay.com/photo/2017/01/31/23/08/classic-2028011_960_720.png'}
-                image={guitar.mainImage  || 'https://cdn.pixabay.com/photo/2017/01/31/23/08/classic-2028011_960_720.png'} 
+                thumbnail={guitar.mainImage || 'https://cdn.pixabay.com/photo/2017/01/31/23/08/classic-2028011_960_720.png'}
+                image={guitar.mainImage || 'https://cdn.pixabay.com/photo/2017/01/31/23/08/classic-2028011_960_720.png'} 
                 showCloseBtn={false} />
         </div>
         <div className="col pt-5">
@@ -40,7 +42,12 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
             <h5>Price: ${guitar.price}</h5>
             <hr />
             <button type="button" className="btn btn-primary" onClick={() => buy()}>Buy now</button>{' '}
-            <button type="button" className="btn btn-info" onClick={() => addToWishlist()}>Add to Wishlist</button>
+            {
+                userLoginStore.loggedIn && 
+                <button type="button" className="btn btn-info" onClick={() => addToWishlist()}>
+                    Add to Wishlist
+                </button>
+            }
         </div>
     </div>
 }
