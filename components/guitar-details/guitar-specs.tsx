@@ -6,6 +6,7 @@ import useSWR from "swr"
 import { fetcher } from "../../infrastructure"
 import { IGuitar } from "../../models"
 import { useMobxStores } from '../../data/stores';
+import { useAnalytics } from '../../hooks';
 
 export interface IGuitarSpecs {
     id: number
@@ -13,12 +14,14 @@ export interface IGuitarSpecs {
 
 export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
     const { cartStore, wishlistStore, userLoginStore } = useMobxStores()
+    const analytics = useAnalytics()
     const { data } = useSWR(`/api/catalog/${props.id}`, fetcher)
     if (!data) return <>Loading...</>
 
     const guitar: IGuitar = data
 
     const buy = () => {
+        analytics.track('hello world')
         cartStore.addGuitar(guitar)
         alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your cart.`)
     }
