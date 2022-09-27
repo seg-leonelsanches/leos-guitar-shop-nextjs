@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       <main className='main'>
         <div className='row'>
           <div className='col'>
-            <h2 className={styles.title}>
+            <h2 className='title'>
               Featured
             </h2>
           </div>
