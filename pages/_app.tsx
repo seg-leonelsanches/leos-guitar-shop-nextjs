@@ -5,12 +5,13 @@ import '../components/fancy-box/fancybox.css'
 
 import React from 'react';
 import App from 'next/app';
-// import type { AppProps } from 'next/app'
+
 import Head from "next/head"
 
 import { Footer, Header } from '../components'
 import { TopNav } from '../components/top-nav'
 import { getStores, StoreProvider } from '../data/stores';
+import { AnalyticsProvider } from '../providers';
 
 interface AppProps {
   initialData: any
@@ -49,17 +50,19 @@ class LeoApp extends App<AppProps> {
     // From then on, calls to `getStores()` return existing instances.
     const stores = getStores(initialData);
 
-    return <StoreProvider value={stores}>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Crafted using Next.js to test Segment" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <TopNav />
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </StoreProvider>
+    return <AnalyticsProvider writeKey='GDqFPpcLGwi19qQiJw14voDw680dUc6h'>
+      <StoreProvider value={stores}>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" content="Crafted using Next.js to test Segment" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <TopNav />
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </StoreProvider>
+    </AnalyticsProvider>
   }
 }
 
