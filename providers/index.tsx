@@ -10,7 +10,7 @@ export const AnalyticsContext = React.createContext<AnalyticsBrowser>(undefined!
 
 export const AnalyticsProvider = ({ children, writeKey }: AnalyticsProviderProps) => {
   const analytics = React.useMemo(
-    () => AnalyticsBrowser.load({ writeKey }),
+    () => AnalyticsBrowser.load({ writeKey, cdnURL: 'https://cdn.segment.build' }),
     [writeKey]
   );
   return (

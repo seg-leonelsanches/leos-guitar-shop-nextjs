@@ -26,6 +26,7 @@ const CartDetailsComponent: React.FunctionComponent<ICartDetails> = () => {
                 const guitar: IGuitar = guitarCatalog.filter(gg => gg.id === g.guitarId)[0]
 
                 return <CartItem 
+                    key={guitar.id}
                     id={g.guitarId} 
                     model={guitar.model} 
                     manufacturer={guitar.manufacturer} 

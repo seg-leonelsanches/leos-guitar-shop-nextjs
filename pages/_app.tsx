@@ -50,7 +50,7 @@ class LeoApp extends App<AppProps> {
     // From then on, calls to `getStores()` return existing instances.
     const stores = getStores(initialData);
 
-    return <AnalyticsProvider writeKey='GDqFPpcLGwi19qQiJw14voDw680dUc6h'>
+    return <AnalyticsProvider writeKey={String(process.env.NEXT_PUBLIC_SEGMENT_WRITE_KEY)}>
       <StoreProvider value={stores}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />

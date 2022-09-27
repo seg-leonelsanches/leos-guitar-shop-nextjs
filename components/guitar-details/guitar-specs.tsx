@@ -20,15 +20,24 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
 
     const guitar: IGuitar = data
 
-    const buy = () => {
-        analytics.track('hello world')
-        cartStore.addGuitar(guitar)
-        alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your cart.`)
+    const buy = async () => {
+        try {
+            await analytics.track('Product Added to Cart')
+            cartStore.addGuitar(guitar)
+            alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your cart.`)
+        } catch (error: any) {
+            console.error('error', error)
+        }
     }
 
-    const addToWishlist = () => {
-        wishlistStore.addGuitar(guitar)
-        alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your wishlist.`)
+    const addToWishlist = async () => {
+        try {
+            await analytics.track('Product Added to Wishlist')
+            wishlistStore.addGuitar(guitar)
+            alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your wishlist.`)
+        } catch (error: any) {
+            console.error('error', error)
+        }
     }
 
     return <div className="row">
