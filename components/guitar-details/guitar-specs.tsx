@@ -22,7 +22,7 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
 
     const buy = async () => {
         try {
-            await analytics.track('Product Added to Cart')
+            await analytics.track('Product Added to Cart', guitar)
             cartStore.addGuitar(guitar)
             alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your cart.`)
         } catch (error: any) {
@@ -32,7 +32,7 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
 
     const addToWishlist = async () => {
         try {
-            await analytics.track('Product Added to Wishlist')
+            await analytics.track('Product Added to Wishlist', guitar)
             wishlistStore.addGuitar(guitar)
             alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your wishlist.`)
         } catch (error: any) {

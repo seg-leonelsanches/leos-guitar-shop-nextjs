@@ -41,7 +41,6 @@ class LeoApp extends App<AppProps> {
     }
   }
 
-  // function LeoApp({ Component, pageProps }: AppProps) {
   render() {
     const { Component, pageProps, initialData } = this.props;
 
@@ -49,8 +48,9 @@ class LeoApp extends App<AppProps> {
     // During the client-side hydration, same applies.
     // From then on, calls to `getStores()` return existing instances.
     const stores = getStores(initialData);
+    const writeKey: string = String(process.env.NEXT_PUBLIC_SEGMENT_WRITE_KEY)
 
-    return <AnalyticsProvider writeKey={String(process.env.NEXT_PUBLIC_SEGMENT_WRITE_KEY)}>
+    return <AnalyticsProvider writeKey={writeKey}>
       <StoreProvider value={stores}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
