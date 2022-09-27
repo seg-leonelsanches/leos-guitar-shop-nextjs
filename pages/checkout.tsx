@@ -1,13 +1,22 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 import { BillingDetails, OurOrder, PaymentMethod } from '../components/checkout'
 import { useMobxStores } from '../data/stores'
+import { useAnalytics } from '../hooks'
 
 const Checkout: NextPage = () => {
     const { cartStore } = useMobxStores()
     const router = useRouter()
+    const analytics = useAnalytics()
+
+    useEffect(() => {
+        analytics.page("Checkout Flow", "Summary", {
+            cart: cartStore.guitars
+        })
+    })
 
     const placeOrder: Function = () => {
         cartStore.placeOrder()

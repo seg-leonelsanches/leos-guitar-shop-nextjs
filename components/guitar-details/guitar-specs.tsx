@@ -28,13 +28,17 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
     ) */
 
     const { data } = useSWR(`/api/catalog/${props.id}`, fetcher)
-    // useEffect(() => { if (data) debouncedPage() }, [])
-    if (!data) return <>Loading...</>
-
-    const guitar: IGuitar = data  
-    analytics.page("Retail Pages", "Product Details", {
-        guitar
+    useEffect(() => {
+        if (data) {
+            analytics.page("Retail Pages", "Product Details", {
+                guitar
+            })
+        }
+        
     })
+
+    if (!data) return <>Loading...</>
+    const guitar: IGuitar = data
 
     const buy = async () => {
         try {
@@ -60,7 +64,7 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
         <div className="col">
             <ReactFancyBox
                 thumbnail={guitar.mainImage || 'https://cdn.pixabay.com/photo/2017/01/31/23/08/classic-2028011_960_720.png'}
-                image={guitar.mainImage || 'https://cdn.pixabay.com/photo/2017/01/31/23/08/classic-2028011_960_720.png'} 
+                image={guitar.mainImage || 'https://cdn.pixabay.com/photo/2017/01/31/23/08/classic-2028011_960_720.png'}
                 showCloseBtn={false} />
         </div>
         <div className="col pt-5">
@@ -71,7 +75,7 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
             <hr />
             <button type="button" className="btn btn-primary" onClick={() => buy()}>Buy now</button>{' '}
             {
-                userLoginStore.loggedIn && 
+                userLoginStore.loggedIn &&
                 <button type="button" className="btn btn-info" onClick={() => addToWishlist()}>
                     Add to Wishlist
                 </button>

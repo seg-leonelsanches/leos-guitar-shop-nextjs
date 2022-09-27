@@ -5,13 +5,16 @@ import styles from '../styles/Home.module.css'
 
 import { GuitarCatalog } from '../components/index-page'
 import { useAnalytics } from '../hooks'
+import { useEffect } from 'react'
 
 const Home: NextPage = () => {
     const analytics = useAnalytics()
     const title: string = "Leo's Guitar Shop"
 
-    analytics.page("Retail Pages", "Home", {
-        title
+    useEffect(() => {
+        analytics.page("Retail Pages", "Home", {
+            title
+        })
     })
 
     return (
