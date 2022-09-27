@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 
 import { BillingDetails, OurOrder, PaymentMethod } from '../components/checkout'
 import { useMobxStores } from '../data/stores'
@@ -28,15 +29,24 @@ const Checkout: NextPage = () => {
                     </div>
                 </div>
                 :
-                <div className='row my-5'>
-                    <div className='col-sm-6'>
-                        <BillingDetails />
+                <>
+                    <div className='row my-5'>
+                        <div className='col-sm-6'>
+                            <BillingDetails />
+                        </div>
+                        <div className='col-sm-6'>
+                            <OurOrder />
+                            <PaymentMethod />
+                        </div>
                     </div>
-                    <div className='col-sm-6'>
-                        <OurOrder />
-                        <PaymentMethod />
+                    <div className='row my-5'>
+                        <div className='col d-flex align-items-center justify-content-center'>
+                            <Link href="/thank-you">
+                                <a className='btn btn-success btn-lg'>Place Order</a>
+                            </Link>
+                        </div>
                     </div>
-                </div>
+                </>
             }
         </div>
     </>

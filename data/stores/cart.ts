@@ -12,7 +12,8 @@ export class CartStore {
             guitars: observable,
             addGuitar: action,
             removeAllGuitarsById: action,
-            removeOneGuitarById: action
+            removeOneGuitarById: action,
+            clearCart: action
         })
 
         makePersistable(this, { 
@@ -47,5 +48,9 @@ export class CartStore {
         if (existingGuitars[0].quantity === 0) {
             this.removeAllGuitarsById(id)
         }
+    }
+
+    clearCart() {
+        this.guitars = []
     }
 }
