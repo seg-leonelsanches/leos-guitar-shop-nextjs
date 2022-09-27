@@ -24,6 +24,16 @@ This is used to validate Segment application onboarding using React/Next.js arch
 
 ## Running
 
+To test with Segment, make sure to create a `.env.local` file with the following:
+
+```ini
+NEXT_PUBLIC_SEGMENT_WRITE_KEY='your-write-key'
+```
+
+You can get your source's write key at Connections > Sources > Your source > Settings > API Keys. 
+
+Then run the app using:
+
 ```bash
 yarn dev
 ```
@@ -37,3 +47,5 @@ Back-end simulated by mock [API routes](https://nextjs.org/docs/api-routes/intro
 The easiest way to deploy a Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+This app is deployed at https://leos-guitar-shop-nextjs.vercel.app/
