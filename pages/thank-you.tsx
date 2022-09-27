@@ -12,12 +12,10 @@ const ThankYou: NextPage = () => {
     const router = useRouter()
 
     useEffect(() => {
-        if (cartStore.guitars.length <= 0) {
+        if (!cartStore.purchaseComplete) {
             router.push("/")
         }
     });
-
-    cartStore.clearCart()
 
     return <>
         <Head>

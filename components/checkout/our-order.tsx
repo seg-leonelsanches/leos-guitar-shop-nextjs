@@ -56,8 +56,8 @@ export const OurOrder: React.FunctionComponent = (props) => {
                             <td></td>
                         </tr>
                         <tr>
-                            <td>Total</td>
-                            <td>${(guitarCatalog.map(g => g.price).reduce((total, next) => total + next) * 1.06 + 45).toFixed(2)}</td>
+                            <td className='text-warning'>Total</td>
+                            <td className='text-warning'>${(guitarCatalog.map(g => g.price).reduce((total, next) => total + next) * 1.06 + 45).toFixed(2)}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -1,12 +1,18 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import { BillingDetails, OurOrder, PaymentMethod } from '../components/checkout'
 import { useMobxStores } from '../data/stores'
 
 const Checkout: NextPage = () => {
     const { cartStore } = useMobxStores()
+    const router = useRouter()
+
+    const placeOrder: Function = () => {
+        cartStore.placeOrder()
+        router.push("/thank-you")
+    }
 
     return <>
         <Head>
@@ -41,9 +47,7 @@ const Checkout: NextPage = () => {
                     </div>
                     <div className='row my-5'>
                         <div className='col d-flex align-items-center justify-content-center'>
-                            <Link href="/thank-you">
-                                <a className='btn btn-success btn-lg'>Place Order</a>
-                            </Link>
+                            <button type='button' className='btn btn-success btn-lg' onClick={() => placeOrder()}>Place Order</button>
                         </div>
                     </div>
                 </>

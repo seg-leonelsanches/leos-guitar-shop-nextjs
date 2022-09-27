@@ -6,14 +6,16 @@ import { GuitarModel } from "../state-models"
 
 export class CartStore {
     guitars: GuitarModel[] = []
+    purchaseComplete: boolean = false
 
-    constructor(initialData: any = { guitars: []}) {
+    constructor(initialData: any = { guitars: [], purchaseComplete: false}) {
         makeObservable(this, {
             guitars: observable,
+            purchaseComplete: observable,
             addGuitar: action,
             removeAllGuitarsById: action,
             removeOneGuitarById: action,
-            clearCart: action
+            placeOrder: action
         })
 
         makePersistable(this, { 
@@ -22,9 +24,11 @@ export class CartStore {
         })
         
         this.guitars = initialData.guitars
+        this.purchaseComplete = initialData.purchaseComplete
     }
 
     addGuitar(guitar: IGuitar) {
+        if (this.purchaseComplete) this.purchaseComplete = false
         const existingGuitars = this.guitars.filter(g => g.guitarId === guitar.id)
         if (existingGuitars.length <= 0) {
             this.guitars.push({ guitarId: Number(guitar.id), quantity: 1 })
@@ -50,7 +54,8 @@ export class CartStore {
         }
     }
 
-    clearCart() {
+    placeOrder() {
+        this.purchaseComplete = true
         this.guitars = []
     }
 }
