@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import ReactFancyBox from '../fancy-box/ReactFancyBox'
 
 import useSWR from "swr"
@@ -7,6 +7,7 @@ import { fetcher } from "../../infrastructure"
 import { IGuitar } from "../../models"
 import { useMobxStores } from '../../data/stores';
 import { useAnalytics } from '../../hooks';
+import { debounce } from 'lodash';
 
 export interface IGuitarSpecs {
     id: number
@@ -15,10 +16,25 @@ export interface IGuitarSpecs {
 export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
     const { cartStore, wishlistStore, userLoginStore } = useMobxStores()
     const analytics = useAnalytics()
+
+    // This is an attempt to not trigger so many events to Segment
+    // in a row, but it doesn't work well.
+    // TODO: Try to find a better way to debounce events. 
+    /* const debouncedPage = useCallback(
+        debounce(async () => await analytics.page("Retail Pages", "Product Details", {
+            guitar
+        }), 5000),
+        [],
+    ) */
+
     const { data } = useSWR(`/api/catalog/${props.id}`, fetcher)
+    // useEffect(() => { if (data) debouncedPage() }, [])
     if (!data) return <>Loading...</>
 
-    const guitar: IGuitar = data
+    const guitar: IGuitar = data  
+    analytics.page("Retail Pages", "Product Details", {
+        guitar
+    })
 
     const buy = async () => {
         try {
