@@ -5,17 +5,25 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import { useMobxStores } from '../data/stores'
+import { useAnalytics } from '../hooks'
 
 const Account: NextPage = () => {
     const { userLoginStore } = useMobxStores()
     const router = useRouter()
+    const analytics = useAnalytics()
 
     useEffect(() => {
-        if (!userLoginStore.loggedIn) router.push("/login")
+        if (!userLoginStore.loggedIn) { 
+            router.push("/login")
+            return
+        }
+
+        analytics.page("User Pages", "Account")
     });
 
     const logout = () => {
         userLoginStore.logout()
+        analytics.reset()
         router.push("/")
     }
 

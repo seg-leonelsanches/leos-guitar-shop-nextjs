@@ -1,7 +1,8 @@
+import { useEffect } from 'react'
+
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 
 import { BillingDetails, OurOrder, PaymentMethod } from '../components/checkout'
 import { useMobxStores } from '../data/stores'
@@ -20,6 +21,9 @@ const Checkout: NextPage = () => {
 
     const placeOrder: Function = () => {
         cartStore.placeOrder()
+        analytics.track("Order Placed", {
+            cart: cartStore.guitars
+        })
         router.push("/thank-you")
     }
 

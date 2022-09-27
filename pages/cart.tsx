@@ -14,7 +14,6 @@ const Cart = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) 
         guitar: guitarCatalog.filter(gg => gg.id === g.guitarId)[0], 
         quantity: g.quantity
     }))
-    console.log('cartItems', cartItems)
     
     return <>
         <Head>

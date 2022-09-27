@@ -17,16 +17,6 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
     const { cartStore, wishlistStore, userLoginStore } = useMobxStores()
     const analytics = useAnalytics()
 
-    // This is an attempt to not trigger so many events to Segment
-    // in a row, but it doesn't work well.
-    // TODO: Try to find a better way to debounce events. 
-    /* const debouncedPage = useCallback(
-        debounce(async () => await analytics.page("Retail Pages", "Product Details", {
-            guitar
-        }), 5000),
-        [],
-    ) */
-
     const { data } = useSWR(`/api/catalog/${props.id}`, fetcher)
     useEffect(() => {
         if (data) {
@@ -34,7 +24,6 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
                 guitar
             })
         }
-        
     })
 
     if (!data) return <>Loading...</>
