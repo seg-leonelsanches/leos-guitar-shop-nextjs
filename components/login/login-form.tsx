@@ -20,7 +20,7 @@ export const LoginForm: React.FunctionComponent = () => {
         userLoginStore.setLoggedIn(true);
 
         analytics.identify(`random-${uuid.v1()}`, {
-            firstNamme: userLoginStore.firstName,
+            firstName: userLoginStore.firstName,
             lastName: userLoginStore.lastName,
             email: userLoginStore.email
         })

@@ -1,10 +1,13 @@
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+
 import { UserAddressModel } from '../../data/state-models';
 import { useMobxStores } from '../../data/stores';
+import { useAnalytics } from '../../hooks';
 
 export const RegistrationForm: React.FunctionComponent = () => {
     const { userLoginStore } = useMobxStores()
+    const analytics = useAnalytics()
     const router = useRouter()
     
     const [firstName, setFirstName] = useState('')
@@ -31,6 +34,19 @@ export const RegistrationForm: React.FunctionComponent = () => {
 
         userLoginStore.setAddressData(addressData);
         userLoginStore.setLoggedIn(true);
+
+        analytics.identify(email, {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            address: { 
+                firstLine: addressFirstLine,
+                secondLine: addressSecondLine,
+                state: state,
+                zipCode: zipCode
+            }
+        })
+
         router.push("/")
     }
     
