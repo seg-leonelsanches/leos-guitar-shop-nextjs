@@ -1,17 +1,19 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 
 import { CartDetails } from '../components/cart'
+import { fetcher } from '../infrastructure'
+import { IGuitar } from '../models'
 
-const Cart: NextPage = () => {
+const Cart = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return <>
         <Head>
             <title>Your Cart - Leo's Guitar Shop</title>
         </Head>
         <div className='container'>
             <div className='row'>
-                <CartDetails />
+                <CartDetails guitars={data} />
             </div>
             <div className='row my-5'>
                 <div className='col d-flex align-items-center justify-content-center'>
@@ -23,5 +25,16 @@ const Cart: NextPage = () => {
         </div>
     </>
 }
+
+export const getServerSideProps: GetStaticProps = async () => {
+    const res = await fetcher(`${process.env.BACKEND_URL || 'http://localhost:3000'}/api/catalog`)
+    const data: IGuitar[] = res
+  
+    return {
+      props: {
+        data,
+      },
+    }
+  }
 
 export default Cart
