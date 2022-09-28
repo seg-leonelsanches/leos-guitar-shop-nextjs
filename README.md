@@ -22,6 +22,19 @@ This is used to validate Segment application onboarding using React/Next.js arch
 - [Yarn](https://yarnpkg.com/)
 - [Jest](https://jestjs.io/)
 
+### Integration with Segment
+
+This app uses [@segment/analytics-next](https://github.com/segmentio/analytics-next) to send events to Segment. The following events are tracked:
+
+- User Log In
+- User Sign Up
+- Visit to main page
+- Visit to guitar
+- Product Added to Cart
+- Product Added to Wishlist
+- Checkout
+- Completing Checkout
+
 ## Running
 
 To test with Segment, make sure to create a `.env.local` file with the following:
