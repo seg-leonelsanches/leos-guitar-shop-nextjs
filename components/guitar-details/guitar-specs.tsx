@@ -7,7 +7,6 @@ import { fetcher } from "../../infrastructure"
 import { IGuitar } from "../../models"
 import { useMobxStores } from '../../data/stores';
 import { useAnalytics } from '../../hooks';
-import { debounce } from 'lodash';
 
 export interface IGuitarSpecs {
     id: number
@@ -31,7 +30,7 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
 
     const buy = async () => {
         try {
-            await analytics.track('Product Added to Cart', guitar)
+            await analytics.track('Product Added To Cart', guitar)
             cartStore.addGuitar(guitar)
             alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your cart.`)
         } catch (error: any) {
@@ -41,7 +40,7 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
 
     const addToWishlist = async () => {
         try {
-            await analytics.track('Product Added to Wishlist', guitar)
+            await analytics.track('Product Added To Wishlist', guitar)
             wishlistStore.addGuitar(guitar)
             alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your wishlist.`)
         } catch (error: any) {
