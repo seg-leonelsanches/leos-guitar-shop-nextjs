@@ -37,6 +37,18 @@ This app uses [@segment/analytics-next](https://github.com/segmentio/analytics-n
 
 ## Running
 
+### Prerequisites
+
+This is a [Node.js](https://nodejs.org/en/download/) application, so it requires Node.js to be installed locally. 
+
+After installing Node.js you'll need to install [Yarn](https://yarnpkg.com/), the package manager for this project:
+
+```sh
+npm i -g yarn
+```
+
+### Running locally
+
 To test with Segment, make sure to create a `.env.local` file with the following:
 
 ```ini
@@ -53,7 +65,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. The page auto-updates as you edit files.
 
-Back-end simulated by mock [API routes](https://nextjs.org/docs/api-routes/introduction).The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Back-end simulated by mock [API routes](https://nextjs.org/docs/api-routes/introduction). The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ### Using Staging Environment
 
