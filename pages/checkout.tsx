@@ -19,8 +19,8 @@ const Checkout: NextPage = () => {
     const { data } = useSWR('/api/catalog', fetcher)
     if (!data) return <>Loading...</>
 
-    const calculatedCartItems: IGuitar[] = cartStore.guitars.map(g => data.filter((gg: IGuitar) => gg.id === g.guitarId)[0])
-    const cartSubtotal = calculatedCartItems.map(g => g.price).reduce((total, next) => total + next)
+    const calculatedCartItems: IGuitar[] = cartStore.guitars.map(g => data.filter((gg: IGuitar) => gg.id === g.guitarId)[0]) || []
+    const cartSubtotal = calculatedCartItems.map(g => g.price).reduce((total, next) => total + next, 0)
     const taxes = cartSubtotal * 0.06
     const shipping = 45
     const total = cartSubtotal + taxes + shipping
@@ -31,10 +31,6 @@ const Checkout: NextPage = () => {
         shipping: shipping,
         total: total
     }
-
-    useEffect(() => {
-        analytics.page("Checkout Flow", "Summary", trackingObject)
-    })
 
     const placeOrder: Function = () => {
         cartStore.placeOrder()

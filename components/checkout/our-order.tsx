@@ -1,4 +1,7 @@
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
+import { useMobxStores } from '../../data/stores';
+import { useAnalytics } from '../../hooks';
 
 import { ISegmentOrderInfo } from './interfaces';
 
@@ -7,6 +10,12 @@ export interface IOurOrder {
 }
 
 export const OurOrder: React.FunctionComponent<IOurOrder> = ({orderInfo}) => {
+    const analytics = useAnalytics()
+    
+    useEffect(() => {
+        analytics.page("Checkout Flow", "Summary", orderInfo)
+    })
+    
     return <>
         <div className='row'>
             <div className='col'>

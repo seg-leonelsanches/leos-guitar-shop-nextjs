@@ -23,13 +23,13 @@ const Cart = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) 
             <div className='row'>
                 <CartDetails cartItems={cartItems} />
             </div>
-            <div className='row my-5'>
+            {cartItems.length > 0 && <div className='row my-5'>
                 <div className='col d-flex align-items-center justify-content-center'>
                     <Link href="/checkout">
                         <a className='btn btn-warning btn-lg'>Checkout</a>
                     </Link>
                 </div>
-            </div>
+            </div>}
         </div>
     </>
 }
