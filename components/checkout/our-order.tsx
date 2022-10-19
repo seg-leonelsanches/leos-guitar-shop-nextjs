@@ -1,16 +1,12 @@
 import React from 'react';
-import useSWR from 'swr';
 
-import { useMobxStores } from '../../data/stores';
-import { fetcher } from '../../infrastructure';
-import { IGuitar } from '../../models';
+import { ISegmentOrderInfo } from './interfaces';
 
-export const OurOrder: React.FunctionComponent = (props) => {
-    const { cartStore } = useMobxStores()
-    const { data } = useSWR('/api/catalog', fetcher)
-    if (!data) return <>Loading...</>
+export interface IOurOrder {
+    orderInfo: ISegmentOrderInfo
+}
 
-    const guitarCatalog: IGuitar[] = cartStore.guitars.map(g => data.filter((gg: IGuitar) => gg.id === g.guitarId)[0])
+export const OurOrder: React.FunctionComponent<IOurOrder> = ({orderInfo}) => {
     return <>
         <div className='row'>
             <div className='col'>
@@ -21,7 +17,7 @@ export const OurOrder: React.FunctionComponent = (props) => {
             <div className='col'>
                 <table className='table table-dark'>
                     <tbody>
-                        {guitarCatalog.map(g =>
+                        {orderInfo.cart.map(g =>
                         (<tr key={g.id}>
                             <td>{g.model}</td>
                             <td>${g.price}</td>
@@ -33,7 +29,7 @@ export const OurOrder: React.FunctionComponent = (props) => {
                         </tr>
                         <tr>
                             <td>Cart subtotal</td>
-                            <td>${guitarCatalog.map(g => g.price).reduce((total, next) => total + next)}</td>
+                            <td>${orderInfo.cartSubtotal.toFixed(2)}</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -41,7 +37,7 @@ export const OurOrder: React.FunctionComponent = (props) => {
                         </tr>
                         <tr>
                             <td>Taxes</td>
-                            <td>${(guitarCatalog.map(g => g.price).reduce((total, next) => total + next) * 0.06).toFixed(2)}</td>
+                            <td>${orderInfo.taxes.toFixed(2)}</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -49,7 +45,7 @@ export const OurOrder: React.FunctionComponent = (props) => {
                         </tr>
                         <tr>
                             <td>Shipping</td>
-                            <td>$45</td>
+                            <td>${orderInfo.shipping.toFixed(2)}</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -57,7 +53,7 @@ export const OurOrder: React.FunctionComponent = (props) => {
                         </tr>
                         <tr>
                             <td className='text-warning'>Total</td>
-                            <td className='text-warning'>${(guitarCatalog.map(g => g.price).reduce((total, next) => total + next) * 1.06 + 45).toFixed(2)}</td>
+                            <td className='text-warning'>${orderInfo.total.toFixed(2)}</td>
                         </tr>
                     </tbody>
                 </table>

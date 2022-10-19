@@ -3,27 +3,42 @@ import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import useSWR from 'swr'
 
-import { BillingDetails, OurOrder, PaymentMethod } from '../components/checkout'
+import { BillingDetails, ISegmentOrderInfo, OurOrder, PaymentMethod } from '../components/checkout'
 import { useMobxStores } from '../data/stores'
 import { useAnalytics } from '../hooks'
+import { IGuitar } from '../models'
+import { fetcher } from '../infrastructure'
 
 const Checkout: NextPage = () => {
     const { cartStore } = useMobxStores()
     const router = useRouter()
     const analytics = useAnalytics()
 
+    const { data } = useSWR('/api/catalog', fetcher)
+    if (!data) return <>Loading...</>
+
+    const calculatedCartItems: IGuitar[] = cartStore.guitars.map(g => data.filter((gg: IGuitar) => gg.id === g.guitarId)[0])
+    const cartSubtotal = calculatedCartItems.map(g => g.price).reduce((total, next) => total + next)
+    const taxes = cartSubtotal * 0.06
+    const shipping = 45
+    const total = cartSubtotal + taxes + shipping
+    const trackingObject: ISegmentOrderInfo = {
+        cart: calculatedCartItems,
+        cartSubtotal: cartSubtotal,
+        taxes: taxes,
+        shipping: shipping,
+        total: total
+    }
+
     useEffect(() => {
-        analytics.page("Checkout Flow", "Summary", {
-            cart: cartStore.guitars
-        })
+        analytics.page("Checkout Flow", "Summary", trackingObject)
     })
 
     const placeOrder: Function = () => {
         cartStore.placeOrder()
-        analytics.track("Order Placed", {
-            cart: cartStore.guitars
-        })
+        analytics.track("Order Placed", trackingObject)
         router.push("/thank-you")
     }
 
@@ -54,7 +69,7 @@ const Checkout: NextPage = () => {
                             <BillingDetails />
                         </div>
                         <div className='col-sm-6'>
-                            <OurOrder />
+                            <OurOrder orderInfo={trackingObject} />
                             <PaymentMethod />
                         </div>
                     </div>
