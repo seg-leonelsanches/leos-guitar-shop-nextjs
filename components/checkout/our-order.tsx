@@ -22,7 +22,7 @@ export const OurOrder: React.FunctionComponent = (props) => {
                 <table className='table table-dark'>
                     <tbody>
                         {guitarCatalog.map(g =>
-                        (<tr>
+                        (<tr key={g.id}>
                             <td>{g.model}</td>
                             <td>${g.price}</td>
                         </tr>
