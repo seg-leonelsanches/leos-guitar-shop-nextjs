@@ -20,7 +20,7 @@ export const SubscriptionForm = () => {
         }
 
         analytics.identify(email)
-        analytics.track("Subscribed to Newsletter", {
+        analytics.track("Newsletter Signed Up", {
             email
         })
 
