@@ -14,6 +14,7 @@ export const RegistrationForm: React.FunctionComponent = () => {
     const [lastName, setLastName] = useState('')
     const [addressFirstLine, setAddressFirstLine] = useState('')
     const [addressSecondLine, setAddressSecondLine] = useState('')
+    const [city, setCity] = useState('')
     const [state, setState] = useState('')
     const [zipCode, setZipCode] = useState('')
     const [email, setEmail] = useState('')
@@ -28,6 +29,7 @@ export const RegistrationForm: React.FunctionComponent = () => {
         const addressData: UserAddressModel = new UserAddressModel(
             addressFirstLine,
             addressSecondLine,
+            city,
             state,
             zipCode
         );
@@ -42,9 +44,12 @@ export const RegistrationForm: React.FunctionComponent = () => {
             address: { 
                 firstLine: addressFirstLine,
                 secondLine: addressSecondLine,
+                city: city,
                 state: state,
-                zipCode: zipCode
-            }
+                zipCode: zipCode,
+                country: 'United States of America'
+            },
+            preferredLanguage: 'English'
         })
 
         router.push("/")
@@ -76,6 +81,13 @@ export const RegistrationForm: React.FunctionComponent = () => {
                     <div className="col mb-3">
                         <label htmlFor="address-second-line" className="form-label">Address (second line)</label>
                         <input type="text" className="form-control" id="address-second-line" onChange={(event) => setAddressSecondLine(event.target.value)} />
+                    </div>
+                </div>
+
+                <div className='row'>
+                    <div className="col mb-3">
+                        <label htmlFor="city" className="form-label">City</label>
+                        <input type="text" className="form-control" id="city" onChange={(event) => setCity(event.target.value)} />
                     </div>
                 </div>
 

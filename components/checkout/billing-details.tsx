@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useMobxStores } from '../../data/stores';
 
-export const BillingDetails: React.FunctionComponent = (props) => {
+export const BillingDetails: React.FunctionComponent = () => {
     const { userLoginStore } = useMobxStores();
     
     const [firstName, setFirstName] = useState(userLoginStore.firstName || '')
     const [lastName, setLastName] = useState(userLoginStore.lastName || '')
     const [addressFirstLine, setAddressFirstLine] = useState(userLoginStore.addressData?.addressFirstLine || '')
     const [addressSecondLine, setAddressSecondLine] = useState(userLoginStore.addressData?.addressSecondLine || '')
+    const [city, setCity] = useState(userLoginStore.addressData?.city || '')
     const [state, setState] = useState(userLoginStore.addressData?.state || '')
     const [zipCode, setZipCode] = useState(userLoginStore.addressData?.zipCode?.toString() || '')
 
@@ -40,6 +41,13 @@ export const BillingDetails: React.FunctionComponent = (props) => {
             <div className="col mb-3">
                 <label htmlFor="address-second-line" className="form-label">Address (second line)</label>
                 <input type="text" className="form-control" id="address-second-line" value={addressSecondLine} onChange={(event) => setAddressSecondLine(event.target.value)} />
+            </div>
+        </div>
+
+        <div className='row'>
+            <div className="col mb-3">
+                <label htmlFor="city" className="form-label">City</label>
+                <input type="text" className="form-control" id="city" value={city} onChange={(event) => setCity(event.target.value)} />
             </div>
         </div>
 

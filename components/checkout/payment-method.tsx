@@ -1,6 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-export const PaymentMethod: React.FunctionComponent = (props) => (
+export interface IPaymentMethod {
+    paymentMethod: string
+    setPaymentMethod: (paymentMethod: string) => void
+}
+
+export const PaymentMethod: React.FunctionComponent<IPaymentMethod> = (props) => (
     <>
         <div className='row'>
             <div className='col'>
@@ -9,13 +14,13 @@ export const PaymentMethod: React.FunctionComponent = (props) => (
         </div>
 
         <div className="form-check">
-            <input className="form-check-input" type="radio" name="payment-option" id="credit-card-option" checked />
+            <input className="form-check-input" type="radio" name="payment-option" id="credit-card-option" checked={props.paymentMethod === 'Credit Card'} onClick={() => props.setPaymentMethod('Credit Card')} />
             <label className="form-check-label" htmlFor="credit-card-option">
                 Credit Card
             </label>
         </div>
         <div className="form-check">
-            <input className="form-check-input" type="radio" name="payment-option" id="paypal-option" />
+            <input className="form-check-input" type="radio" name="payment-option" id="paypal-option" checked={props.paymentMethod === 'PayPal'} onClick={() => props.setPaymentMethod('PayPal')} />
             <label className="form-check-label" htmlFor="paypal-option">
                 PayPal
             </label>

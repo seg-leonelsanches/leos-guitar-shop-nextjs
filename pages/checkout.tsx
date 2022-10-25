@@ -8,11 +8,14 @@ import { useMobxStores } from '../data/stores'
 import { useAnalytics } from '../hooks'
 import { IGuitar } from '../models'
 import { fetcher } from '../infrastructure'
+import { useState } from 'react'
 
 const Checkout: NextPage = () => {
     const { cartStore } = useMobxStores()
     const router = useRouter()
     const analytics = useAnalytics()
+
+    const [paymentMethod, setPaymentMethod] = useState('Credit Card')
 
     const { data } = useSWR('/api/catalog', fetcher)
     if (!data) return <>Loading...</>
@@ -27,7 +30,8 @@ const Checkout: NextPage = () => {
         cartSubtotal: cartSubtotal,
         taxes: taxes,
         shipping: shipping,
-        total: total
+        total: total,
+        paymentMethod: paymentMethod
     }
 
     const placeOrder: Function = () => {
@@ -64,7 +68,7 @@ const Checkout: NextPage = () => {
                         </div>
                         <div className='col-sm-6'>
                             <OurOrder orderInfo={trackingObject} />
-                            <PaymentMethod />
+                            <PaymentMethod paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} />
                         </div>
                     </div>
                     <div className='row my-5'>

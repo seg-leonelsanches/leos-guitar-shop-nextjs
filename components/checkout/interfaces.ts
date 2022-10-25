@@ -6,4 +6,5 @@ export interface ISegmentOrderInfo {
     taxes: number
     shipping: number
     total: number
+    paymentMethod: string
 }
