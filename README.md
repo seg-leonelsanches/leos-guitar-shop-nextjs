@@ -82,3 +82,7 @@ The easiest way to deploy a Next.js app is to use the [Vercel Platform](https://
 Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 This app is deployed at https://leos-guitar-shop-nextjs.vercel.app/
+
+## Google Tag Manager Testing
+
+Make sure to set a `NEXT_PUBLIC_GTM_ID` environment variable with the value equal to you GTM ID.
