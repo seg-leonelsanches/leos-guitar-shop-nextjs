@@ -42,6 +42,12 @@ class LeoApp extends App<AppProps> {
     }
   }
 
+  componentDidMount() {
+    if (process.env.NEXT_PUBLIC_GTM_ID) {
+      TagManager.initialize({ gtmId: process.env.NEXT_PUBLIC_GTM_ID })
+    }
+  }
+
   render() {
     const { Component, pageProps, initialData } = this.props
 
@@ -50,9 +56,6 @@ class LeoApp extends App<AppProps> {
     // From then on, calls to `getStores()` return existing instances.
     const stores = getStores(initialData)
     const writeKey: string = String(process.env.NEXT_PUBLIC_SEGMENT_WRITE_KEY)
-    if (process.env.NEXT_PUBLIC_GTM_ID) {
-      TagManager.initialize({ gtmId: process.env.NEXT_PUBLIC_GTM_ID })
-    }
 
     return <AnalyticsProvider writeKey={writeKey}>
       <StoreProvider value={stores}>
