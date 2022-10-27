@@ -7,6 +7,7 @@ import React from 'react';
 import App from 'next/app';
 
 import Head from "next/head"
+import TagManager from 'react-gtm-module';
 
 import { Footer, Header } from '../components'
 import { TopNav } from '../components/top-nav'
@@ -42,13 +43,16 @@ class LeoApp extends App<AppProps> {
   }
 
   render() {
-    const { Component, pageProps, initialData } = this.props;
+    const { Component, pageProps, initialData } = this.props
 
     // During SSR, this will create new store instances so having `initialData` is crucial.
     // During the client-side hydration, same applies.
     // From then on, calls to `getStores()` return existing instances.
-    const stores = getStores(initialData);
+    const stores = getStores(initialData)
     const writeKey: string = String(process.env.NEXT_PUBLIC_SEGMENT_WRITE_KEY)
+    if (process.env.NEXT_PUBLIC_GTM_ID) {
+      TagManager.initialize({ gtmId: process.env.NEXT_PUBLIC_GTM_ID })
+    }
 
     return <AnalyticsProvider writeKey={writeKey}>
       <StoreProvider value={stores}>
