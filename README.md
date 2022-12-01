@@ -11,7 +11,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Motivation
 
-Hilarity, I guess. This project simulates a Guitar Shop. Every login attempt with any email/password will log a random user successfully. 
+Hilarity, I guess. This project simulates a Guitar Shop. Every login attempt with any email/password will log in a random user successfully. 
 
 This is used to validate Segment application onboarding using React/Next.js archetype. 
 
@@ -85,4 +85,4 @@ This app is deployed at https://leos-guitar-shop-nextjs.vercel.app/
 
 ## Google Tag Manager Testing
 
-Make sure to set a `NEXT_PUBLIC_GTM_ID` environment variable with the value equal to you GTM ID.
+Make sure to set a `NEXT_PUBLIC_GTM_ID` environment variable with the value equal to you GTM ID. The sites does the rest, initializing the Google data layer.
