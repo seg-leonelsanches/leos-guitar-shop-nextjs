@@ -1,12 +1,20 @@
 import React from 'react';
 
 import { AnalyticsBrowser } from '@segment/analytics-next';
-import { NextRouter, useRouter } from 'next/router';
-import { useAnalytics } from '../../hooks';
+import { NextRouter, withRouter } from 'next/router';
+import { withAnalytics } from '../../hocs';
 
-export class FeedbackForm extends React.Component {
+export interface IFeedbackFormProps {
     analytics: AnalyticsBrowser;
     router: NextRouter;
+}
+
+/**
+ * This is an example of old-style React programming, using class components.
+ * Instead of hooks, we use HOCs (Higher Order Components) to inject the analytics and router objects.
+ * The state is initialized in the constructor, and the methods are bound to the class instance.
+ */
+class FeedbackFormInternal extends React.Component<IFeedbackFormProps> {
 
     constructor(props: any) {
         super(props);
@@ -14,8 +22,6 @@ export class FeedbackForm extends React.Component {
             question1: "",
             question2: ""
         };
-        this.analytics = useAnalytics();
-        this.router = useRouter();
 
         // For React class components, we need to bind the methods to the class instance, 
         // so that the methods can access the state and props of the class instance properly.
@@ -34,13 +40,13 @@ export class FeedbackForm extends React.Component {
 
     submitAnswers() {
         // Send the answers to Segment
-        this.analytics.track('Feedback Submitted', {
+        this.props.analytics.track('Feedback Submitted', {
             question1: (this.state as any).question1,
             question2: (this.state as any).question2
         });
 
         alert('Thanks for your feedback!');
-        this.router.push('/');
+        this.props.router.push('/');
     }
 
     render() {
@@ -49,13 +55,15 @@ export class FeedbackForm extends React.Component {
             <div className='box-shadow'>
                 <form>
                     <div className='row'>
-                        <div className="col-lg-6 mb-3">
-                            <label htmlFor="first-name" className="form-label">First name</label>
-                            <input type="text" className="form-control" id="first-name" onChange={(event) => this.setQuestion1(event.target.value)} />
+                        <div className="col mb-3">
+                            <label htmlFor="question1" className="form-label">Describe in one paragraph the experience of shopping at Leo's Guitar Shop.</label>
+                            <textarea className="form-control" id="question1" onChange={(event) => this.setQuestion1(event.target.value)} />
                         </div>
-                        <div className="col-lg-6 mb-3">
-                            <label htmlFor="last-name" className="form-label">Last name</label>
-                            <input type="text" className="form-control" id="last-name" onChange={(event) => this.setQuestion2(event.target.value)} />
+                    </div>
+                    <div className='row'>
+                        <div className="col mb-3">
+                            <label htmlFor="question2" className="form-label">What are points that we need to improve in our experience?</label>
+                            <textarea className="form-control" id="question2" onChange={(event) => this.setQuestion2(event.target.value)} />
                         </div>
                     </div>
 
@@ -65,3 +73,5 @@ export class FeedbackForm extends React.Component {
         </>;
     }
 }
+
+export const FeedbackForm = withAnalytics(withRouter(FeedbackFormInternal));
