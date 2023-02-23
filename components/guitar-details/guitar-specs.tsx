@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect } from 'react';
-import ReactFancyBox from '../fancy-box/ReactFancyBox'
+import React, { useEffect } from 'react';
+import ReactFancyBox from '../fancy-box/ReactFancyBox';
 
 import useSWR from "swr"
 
-import { fetcher } from "../../infrastructure"
-import { IGuitar } from "../../models"
+import { fetcher } from "../../infrastructure";
+import { IGuitar } from "../../models";
 import { useMobxStores } from '../../data/stores';
 import { useAnalytics } from '../../hooks';
 
