@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from 'next/link'
 import { SubscriptionForm } from './newsletter'
 
@@ -9,7 +9,16 @@ export const Footer = () => (<footer className='footer container'>
         <div className='col-sm-6'>
             <div className='row'>
                 <div className='col'>
-                    <Image className="m-auto" src="/logo.png" alt="Leo's Guitar Shop" width={251} height={27} />
+                    <Image
+                        className="m-auto"
+                        src="/logo.png"
+                        alt="Leo's Guitar Shop"
+                        width={251}
+                        height={27}
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto"
+                        }} />
                 </div>
             </div>
             <div className='row'>

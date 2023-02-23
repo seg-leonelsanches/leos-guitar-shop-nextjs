@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from 'next/link'
 import { SearchForm } from './search'
 
@@ -11,7 +11,16 @@ export const Header = () => (
         <div className='col f-left'>
           <Link href="/">
 
-            <Image className="m-auto" src="/logo.png" alt="Leo's Guitar Shop" width={502} height={55} />
+            <Image
+              className="m-auto"
+              src="/logo.png"
+              alt="Leo's Guitar Shop"
+              width={502}
+              height={55}
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
 
           </Link>
         </div>
