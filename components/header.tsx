@@ -10,9 +10,9 @@ export const Header = () => (
       <div className='row'>
         <div className='col f-left'>
           <Link href="/">
-            <a>
-              <Image className="m-auto" src="/logo.png" alt="Leo's Guitar Shop" width={502} height={55} />
-            </a>
+
+            <Image className="m-auto" src="/logo.png" alt="Leo's Guitar Shop" width={502} height={55} />
+
           </Link>
         </div>
         <div className='col f-right'>
