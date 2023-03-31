@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import { faker } from '@faker-js/faker';
 import uuid from "node-uuid"
 
+import crypto from 'crypto';
+
 import { useMobxStores } from '../../data/stores';
 import { useAnalytics } from '../../hooks';
 
@@ -14,12 +16,19 @@ export const LoginForm: React.FunctionComponent = () => {
     const router = useRouter()
 
     const login: Function = () => {
-        userLoginStore.setEmail(faker.internet.email().toLowerCase());
+        const email: string = faker.internet.email().toLowerCase();
+        const shasum: crypto.Hash = crypto.createHash('sha1');
+        shasum.update(email);
+
+        const id: string = shasum.digest('hex');
+
+        userLoginStore.setId(id);
+        userLoginStore.setEmail(email);
         userLoginStore.setFirstName(faker.name.firstName());
         userLoginStore.setLastName(faker.name.lastName());
         userLoginStore.setLoggedIn(true);
 
-        analytics.identify(`random-${uuid.v1()}`, {
+        analytics.identify(id, {
             firstName: userLoginStore.firstName,
             lastName: userLoginStore.lastName,
             email: userLoginStore.email
