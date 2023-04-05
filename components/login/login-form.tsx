@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { faker } from '@faker-js/faker';
-import uuid from "node-uuid"
 
 import crypto from 'crypto';
 
