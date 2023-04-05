@@ -65,9 +65,9 @@ class LeoApp extends App<AppProps> {
           <meta name="description" content="Crafted using Next.js to test Segment" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
+        <Consent writeKey={writeKey} />
         <TopNav />
         <Header />
-        <Consent writeKey={writeKey} /> 
         <Component {...pageProps} />
         <Footer />
       </StoreProvider>
