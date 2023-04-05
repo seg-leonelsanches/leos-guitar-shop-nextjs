@@ -13,6 +13,7 @@ import { Footer, Header } from '../components'
 import { TopNav } from '../components/top-nav'
 import { getStores, StoreProvider } from '../data/stores';
 import { AnalyticsProvider } from '../providers';
+import { Consent } from '../components/consent';
 
 interface AppProps {
   initialData: any
@@ -67,6 +68,7 @@ class LeoApp extends App<AppProps> {
         <TopNav />
         <Header />
         <Component {...pageProps} />
+        <Consent writeKey={writeKey} /> 
         <Footer />
       </StoreProvider>
     </AnalyticsProvider>
