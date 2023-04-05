@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { ConsentManager, openConsentManager } from "@segment/consent-manager";
 import Script from "next/script";
+
+import { ConsentManager } from "@segment/consent-manager";
+import inEU from '@segment/in-eu'
 
 export const Consent = (props: any) => {
   const bannerContent = (
@@ -29,7 +31,7 @@ export const Consent = (props: any) => {
       />
       <ConsentManager
         writeKey={props.writeKey}
-        shouldRequireConsent={() => true}
+        shouldRequireConsent={inEU}
         bannerContent={bannerContent}
         bannerSubContent={bannerSubContent}
         preferencesDialogTitle={preferencesDialogTitle}
@@ -37,10 +39,6 @@ export const Consent = (props: any) => {
         cancelDialogTitle={cancelDialogTitle}
         cancelDialogContent={cancelDialogContent}
       />
-
-      <button type="button" onClick={openConsentManager}>
-        Website Data Collection Preferences
-      </button>
     </>
   );
 };
