@@ -68,7 +68,6 @@ class LeoApp extends App<AppProps> {
         <Consent writeKey={writeKey} />
         <TopNav />
         <Header />
-        <Consent writeKey={writeKey} /> 
         <Component {...pageProps} />
         <Footer />
       </StoreProvider>
