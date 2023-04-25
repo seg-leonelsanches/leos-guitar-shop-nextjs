@@ -4,6 +4,22 @@ import Link from 'next/link'
 
 import { observer } from 'mobx-react';
 import { useMobxStores } from '../data/stores';
+import { UserLoginStore } from '../data/stores/user-login';
+
+interface WelcomeMessageProps {
+    userLoginStore: UserLoginStore;
+}
+
+const WelcomeMessage: React.FunctionComponent<WelcomeMessageProps> = (props) => {
+    let welcomeMessage = 'Welcome!';
+    if (props.userLoginStore.loggedIn) {
+        welcomeMessage = `Welcome, ${props.userLoginStore.firstName} ${props.userLoginStore.lastName}.`;
+    }
+
+    return <h6>
+        {welcomeMessage}
+    </h6>
+}
 
 const TopNavComponent = () => {
     const { userLoginStore } = useMobxStores();
@@ -13,7 +29,7 @@ const TopNavComponent = () => {
             <div className="container-fluid">
                 <div className='row w-100 mt-2 d-flex justify-content-between'>
                     <div className='col my-2 mx-3'>
-                        <h6>Welcome{userLoginStore.loggedIn ? `, ${userLoginStore.firstName} ${userLoginStore.lastName}.` : '!'}</h6>
+                        <WelcomeMessage userLoginStore={userLoginStore} />
                     </div>
                     <div className='col'>
                         <ul className="navbar-nav float-end">

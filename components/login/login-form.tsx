@@ -36,7 +36,7 @@ export const LoginForm: React.FunctionComponent = () => {
         router.push("/")
     }
 
-    return <div className='col-lg-6'>
+    return <>
         <h4>Returning customers</h4>
         <div className='box-shadow'>
             <form>
@@ -52,5 +52,5 @@ export const LoginForm: React.FunctionComponent = () => {
                 <button type="button" className="btn btn-primary" onClick={() => login()}>Login</button>
             </form>
         </div>
-    </div>
+    </>
 }

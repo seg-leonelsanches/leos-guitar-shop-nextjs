@@ -63,7 +63,7 @@ export const RegistrationForm: React.FunctionComponent = () => {
         router.push("/")
     }
     
-    return <div className='col-lg-6'>
+    return <div className='col-lg-6 px-3'>
         <h4>New customers</h4>
         <div className='box-shadow'>
             <form>
