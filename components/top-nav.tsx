@@ -13,7 +13,13 @@ interface WelcomeMessageProps {
 const WelcomeMessage: React.FunctionComponent<WelcomeMessageProps> = (props) => {
     let welcomeMessage = 'Welcome!';
     if (props.userLoginStore.loggedIn) {
-        welcomeMessage = `Welcome, ${props.userLoginStore.firstName} ${props.userLoginStore.lastName}.`;
+        if (!props.userLoginStore.registrationComplete) {
+            return <h6>
+                Welcome! Please take some time to <Link href='/account'>review your account information</Link>.
+            </h6>;
+        } else {
+            welcomeMessage = `Welcome, ${props.userLoginStore.firstName} ${props.userLoginStore.lastName}.`;
+        }
     }
 
     return <h6>

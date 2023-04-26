@@ -8,6 +8,7 @@ export class UserLoginStore {
     email: string = ""
     firstName: string = ""
     lastName: string = ""
+    phone: string = ""
     loggedIn: boolean = false
     registrationComplete: boolean = false
     addressData: UserAddressModel | null = null
@@ -18,12 +19,14 @@ export class UserLoginStore {
             email: observable,
             firstName: observable,
             lastName: observable,
+            phone: observable,
             loggedIn: observable,
             registrationComplete: observable,
             addressData: observable,
             setEmail: action,
             setFirstName: action,
             setLastName: action,
+            setPhone: action,
             setAddressData: action
         })
 
@@ -34,6 +37,7 @@ export class UserLoginStore {
                 'email', 
                 'firstName', 
                 'lastName', 
+                'phone',
                 'loggedIn',
                 'registrationComplete',
                 'addressData'
@@ -64,6 +68,10 @@ export class UserLoginStore {
         this.lastName = lastName
     }
 
+    setPhone(phone: string) {
+        this.phone = phone
+    }
+
     setLoggedIn(loggedIn: boolean) {
         this.loggedIn = loggedIn
     }
@@ -81,6 +89,7 @@ export class UserLoginStore {
         this.email = ""
         this.firstName = ""
         this.lastName = ""
+        this.phone = ""
         this.loggedIn = false
         this.registrationComplete = false
     }
@@ -91,6 +100,7 @@ export class UserLoginStore {
             email: this.email,
             firstName: this.firstName,
             lastName: this.lastName,
+            phone: this.phone,
             loggedIn: this.loggedIn,
             registrationComplete: this.registrationComplete
         }

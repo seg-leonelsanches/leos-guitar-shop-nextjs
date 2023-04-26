@@ -14,7 +14,10 @@ const Login: NextPage = () => {
                     <LoginForm />
                     <LoginWithPhoneForm />
                 </div>
-                <RegistrationForm />
+                <div className='col-lg-6 px-3'>
+                    <h4>New customers</h4>
+                    <RegistrationForm actionButtonLabel='Register'/>
+                </div>
             </div>
         </div>
     </>

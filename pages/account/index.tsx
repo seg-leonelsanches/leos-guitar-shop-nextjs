@@ -4,8 +4,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { useMobxStores } from '../data/stores'
-import { useAnalytics } from '../hooks'
+import { useMobxStores } from '../../data/stores'
+import { useAnalytics } from '../../hooks'
 
 const Account: NextPage = () => {
     const { userLoginStore } = useMobxStores()
@@ -44,13 +44,20 @@ const Account: NextPage = () => {
                                 <td>Email</td>
                                 <td>{userLoginStore.email}</td>
                             </tr>
+                            <tr>
+                                <td>Phone Number</td>
+                                <td>{userLoginStore.phone}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div className='row'>
-                <div className='col'>
-                    <button type='button' className='btn btn-warning float-end' onClick={() => logout()}>
+                <div className='d-flex col justify-content-end'>
+                    <button type='button' className='btn btn-info mx-2' onClick={() => router.push('/account/edit')}>
+                        Edit your User Data
+                    </button>
+                    <button type='button' className='btn btn-warning' onClick={() => logout()}>
                         Logout
                     </button>
                 </div>

@@ -1,10 +1,14 @@
 import { FormEvent, useState } from "react";
 import { useAnalytics } from "../../hooks";
+import { useMobxStores } from "../../data/stores";
+import { useRouter } from "next/router";
 
 export const LoginWithPhoneForm: React.FunctionComponent = () => {
+    const { userLoginStore } = useMobxStores()
     const [phoneNumber, setPhoneNumber] = useState('');
     const [formValidated, setFormValidated] = useState(false);
     const analytics = useAnalytics();
+    const router = useRouter();
 
     const loginWithPhone = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -14,9 +18,14 @@ export const LoginWithPhoneForm: React.FunctionComponent = () => {
             return;
         }
 
+        userLoginStore.setPhone(phoneNumber);
+        userLoginStore.setLoggedIn(true);
+
         analytics.identify(null, {
             phone: phoneNumber
         });
+
+        router.push("/");
     }
 
     const setPhoneAndResetForm = (phoneNumber: string) => {

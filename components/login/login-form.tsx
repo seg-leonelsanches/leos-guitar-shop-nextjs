@@ -26,6 +26,7 @@ export const LoginForm: React.FunctionComponent = () => {
         userLoginStore.setFirstName(faker.name.firstName());
         userLoginStore.setLastName(faker.name.lastName());
         userLoginStore.setLoggedIn(true);
+        userLoginStore.setRegistrationComplete(true);
 
         analytics.identify(id, {
             firstName: userLoginStore.firstName,
