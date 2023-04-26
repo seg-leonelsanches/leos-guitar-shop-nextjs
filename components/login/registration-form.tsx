@@ -6,12 +6,13 @@ import crypto from 'crypto';
 import { UserAddressModel } from '../../data/state-models';
 import { useMobxStores } from '../../data/stores';
 import { useAnalytics } from '../../hooks';
+import { observer } from 'mobx-react';
 
 export interface RegistrationFormProps {
     actionButtonLabel: string
 }
 
-export const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = (props) => {
+export const RegistrationFormComponent: React.FunctionComponent<RegistrationFormProps> = (props) => {
     const { userLoginStore } = useMobxStores()
     const analytics = useAnalytics()
     const router = useRouter()
@@ -202,3 +203,5 @@ export const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = 
         </form>
     </div>
 }
+
+export const RegistrationForm = observer(RegistrationFormComponent)

@@ -10,10 +10,11 @@ interface WelcomeMessageProps {
     userLoginStore: UserLoginStore;
 }
 
-const WelcomeMessage: React.FunctionComponent<WelcomeMessageProps> = (props) => {
+const WelcomeMessageComponent: React.FunctionComponent<WelcomeMessageProps> = (props) => {
     let welcomeMessage = 'Welcome!';
     if (props.userLoginStore.loggedIn) {
-        if (!props.userLoginStore.registrationComplete) {
+        console.log('props.userLoginStore.registrationComplete', props.userLoginStore.registrationComplete)
+        if (props.userLoginStore.registrationComplete !== true) {
             return <h6>
                 Welcome! Please take some time to <Link href='/account'>review your account information</Link>.
             </h6>;
@@ -26,6 +27,8 @@ const WelcomeMessage: React.FunctionComponent<WelcomeMessageProps> = (props) => 
         {welcomeMessage}
     </h6>
 }
+
+const WelcomeMessage = observer(WelcomeMessageComponent)
 
 const TopNavComponent = () => {
     const { userLoginStore } = useMobxStores();
