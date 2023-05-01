@@ -12,7 +12,7 @@ export const Header = () => (
           <Link href="/">
 
             <Image
-              className="m-auto"
+              className="logo m-auto"
               src="/logo.png"
               alt="Leo's Guitar Shop"
               width={502}
