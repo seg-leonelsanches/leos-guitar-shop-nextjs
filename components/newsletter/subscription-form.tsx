@@ -5,19 +5,19 @@ export const SubscriptionForm = () => {
     const [email, setEmail] = useState('')
     const analytics = useAnalytics()
 
-    const validateEmail = (email: string) => {
+/*    const validateEmail = (email: string) => {
         return email
           .toLowerCase()
           .match(
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
           );
     }
-    
+*/    
     const subscribeToNewsletter: Function = () => {
-        if (!validateEmail(email)) {
-            alert(`Please provide a valid email address.`)
-            return
-        }
+//        if (!validateEmail(email)) {
+//            alert(`Please provide a valid email address.`)
+//            return
+//        }
 
         analytics.identify(email)
         analytics.track("Newsletter Signed Up", {
