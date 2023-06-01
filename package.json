@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@segment/analytics-next": "^1.47.0",
-    "@segment/consent-manager": "^5.7.0",
+    "@segment/consent-manager": "^5.8.1",
     "@segment/in-eu": "^0.4.0",
     "axios": "^1.2.0",
     "bootstrap": "^5.2.1",
