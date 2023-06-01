@@ -8,7 +8,9 @@ export class UserLoginStore {
     email: string = ""
     firstName: string = ""
     lastName: string = ""
+    phone: string = ""
     loggedIn: boolean = false
+    registrationComplete: boolean = false
     addressData: UserAddressModel | null = null
 
     constructor(initialData: any = {}) {
@@ -17,17 +19,29 @@ export class UserLoginStore {
             email: observable,
             firstName: observable,
             lastName: observable,
+            phone: observable,
             loggedIn: observable,
+            registrationComplete: observable,
             addressData: observable,
             setEmail: action,
             setFirstName: action,
             setLastName: action,
+            setPhone: action,
             setAddressData: action
         })
 
         makePersistable(this, { 
             name: 'UserLoginStore', 
-            properties: ['id', 'email', 'firstName', 'lastName', 'loggedIn', 'addressData']
+            properties: [
+                'id', 
+                'email', 
+                'firstName', 
+                'lastName', 
+                'phone',
+                'loggedIn',
+                'registrationComplete',
+                'addressData'
+            ]
         })
         
         this.id = initialData.id
@@ -35,6 +49,7 @@ export class UserLoginStore {
         this.firstName = initialData.firstName
         this.lastName = initialData.lastName
         this.loggedIn = initialData.loggedIn
+        this.registrationComplete = initialData.registrationComplete
     }
 
     setId(id: string) {
@@ -53,6 +68,10 @@ export class UserLoginStore {
         this.lastName = lastName
     }
 
+    setPhone(phone: string) {
+        this.phone = phone
+    }
+
     setLoggedIn(loggedIn: boolean) {
         this.loggedIn = loggedIn
     }
@@ -61,12 +80,18 @@ export class UserLoginStore {
         this.addressData = addressData
     }
 
+    setRegistrationComplete(registrationComplete: boolean) {
+        this.registrationComplete = registrationComplete
+    }
+
     logout() {
         this.id = ""
         this.email = ""
         this.firstName = ""
         this.lastName = ""
+        this.phone = ""
         this.loggedIn = false
+        this.registrationComplete = false
     }
 
     __data() {
@@ -75,7 +100,9 @@ export class UserLoginStore {
             email: this.email,
             firstName: this.firstName,
             lastName: this.lastName,
-            loggedIn: this.loggedIn
+            phone: this.phone,
+            loggedIn: this.loggedIn,
+            registrationComplete: this.registrationComplete
         }
     }
 }
