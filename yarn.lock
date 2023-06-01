@@ -540,10 +540,10 @@
   dependencies:
     unfetch "^3.1.1"
 
-"@segment/consent-manager@^5.7.0":
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/@segment/consent-manager/-/consent-manager-5.7.0.tgz#f9cd298a3b36643602de310f97b89c596da22549"
-  integrity sha512-K0LsDmtUrYTNdJ+3uLoI0SF5/KzYZgkQNShiV19m6hPg3p8iTmBDYJ7nz6UnmkiqEvtjh6EbwWyg/VLWYajrbA==
+"@segment/consent-manager@^5.8.1":
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/@segment/consent-manager/-/consent-manager-5.8.1.tgz#4218d4eaefda46ff7ba32608377d55743e211bc0"
+  integrity sha512-3VFKQYoEdj7opl0wqJMNpyeQyy7eTKUtJq11h/Udnk/MDU1DP5Tn5i5orWweFvJY/tnUflEKLHd+RJdOmj6FEw==
   dependencies:
     "@emotion/react" "^11.8.2"
     "@emotion/styled" "^11.8.1"
