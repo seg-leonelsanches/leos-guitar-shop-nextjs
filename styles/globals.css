@@ -149,7 +149,7 @@ a {
   .code {
     background: #111;
   }
-  .logo img {
+  img.logo {
     filter: invert(1);
   }
 }

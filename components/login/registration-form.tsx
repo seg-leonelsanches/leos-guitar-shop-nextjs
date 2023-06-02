@@ -168,7 +168,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
                         value={email}
                         onChange={(event) => setEmail(event.target.value)} 
                     />
-                    <div id="email-help-2" className="form-text">We'll never share your email with anyone else.</div>
+                    <div id="email-help-2" className="form-text">We&apos;ll never share your email with anyone else.</div>
                 </div>
                 <div className="col-lg-6 mb-3">
                 <label htmlFor="login-phone" className="form-label">Phone number</label>
