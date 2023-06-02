@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+
+import crypto from 'crypto';
+
 import { useAnalytics } from '../../hooks'
 
 export const SubscriptionForm = () => {
@@ -19,7 +22,12 @@ export const SubscriptionForm = () => {
             return
         }
 
-        analytics.identify(email)
+        const shasum: crypto.Hash = crypto.createHash('sha1');
+        shasum.update(email);
+
+        const id: string = shasum.digest('hex');
+
+        analytics.identify(id, { email })
         analytics.track("Newsletter Signed Up", {
             email
         })
