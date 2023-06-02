@@ -1,25 +1,33 @@
 import React, { useState } from 'react'
+
+import crypto from 'crypto';
+
 import { useAnalytics } from '../../hooks'
 
 export const SubscriptionForm = () => {
     const [email, setEmail] = useState('')
     const analytics = useAnalytics()
 
-/*    const validateEmail = (email: string) => {
+    const validateEmail = (email: string) => {
         return email
           .toLowerCase()
           .match(
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
           );
     }
-*/    
+    
     const subscribeToNewsletter: Function = () => {
-//        if (!validateEmail(email)) {
-//            alert(`Please provide a valid email address.`)
-//            return
-//        }
+        if (!validateEmail(email)) {
+            alert(`Please provide a valid email address.`)
+            return
+        }
 
-        analytics.identify(email)
+        const shasum: crypto.Hash = crypto.createHash('sha1');
+        shasum.update(email);
+
+        const id: string = shasum.digest('hex');
+
+        analytics.identify(id, { email })
         analytics.track("Newsletter Signed Up", {
             email
         })
