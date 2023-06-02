@@ -63,7 +63,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
                 state: state,
                 zipCode: zipCode,
                 country: 'United States of America'
-            },
+            } as any,
             preferredLanguage: 'English'
         })
 
