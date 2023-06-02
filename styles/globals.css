@@ -141,7 +141,7 @@ a {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   .card,
   .footer {
     border-color: #222;
