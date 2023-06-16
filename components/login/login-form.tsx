@@ -32,7 +32,14 @@ export const LoginForm: React.FunctionComponent = () => {
             firstName: userLoginStore.firstName,
             lastName: userLoginStore.lastName,
             email: userLoginStore.email
-        })
+        });
+
+        analytics.track('Signed In', {
+            method: 'Website',
+            firstName: userLoginStore.firstName,
+            lastName: userLoginStore.lastName,
+            email: userLoginStore.email
+        });
 
         router.push("/")
     }

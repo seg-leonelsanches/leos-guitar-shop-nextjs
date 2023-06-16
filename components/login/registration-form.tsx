@@ -65,7 +65,14 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
                 country: 'United States of America'
             } as any,
             preferredLanguage: 'English'
-        })
+        });
+
+        analytics.track('Signed Up', {
+            method: 'Website',
+            firstName: userLoginStore.firstName,
+            lastName: userLoginStore.lastName,
+            email: userLoginStore.email
+        });
 
         router.push("/")
     }
