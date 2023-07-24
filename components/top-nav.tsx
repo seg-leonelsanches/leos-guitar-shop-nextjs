@@ -14,7 +14,6 @@ interface WelcomeMessageProps {
 const WelcomeMessageComponent: React.FunctionComponent<WelcomeMessageProps> = (props) => {
     let welcomeMessage = 'Welcome!';
     if (props.userLoginStore.loggedIn) {
-        // console.log('props.userLoginStore.registrationComplete', props.userLoginStore.registrationComplete)
         if (props.userLoginStore.registrationComplete !== true) {
             return <h6>
                 Welcome! Please take some time to <Link href='/account'>review your account information</Link>.
@@ -44,7 +43,7 @@ const TopNavComponent = () => {
                     </div>
                     <div className='col'>
                         <ul className="navbar-nav float-end">
-                            <li className='nav-item'>
+                            {/* <li className='nav-item'>
                                 <a href={`/pt-BR${router.asPath}`} className='nav-link'>
                                     <span className="fi fi-br"></span>
                                 </a>
@@ -53,9 +52,9 @@ const TopNavComponent = () => {
                                 <a href={`/en-US${router.asPath}`} className='nav-link'>
                                     <span className="fi fi-us"></span>
                                 </a>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
-                                <Link className="nav-link" href="/cart" legacyBehavior>
+                                <Link className="nav-link" href="/cart">
 
                                     <i className="bi bi-cart"> </i>My Cart
                                 </Link>
@@ -63,13 +62,13 @@ const TopNavComponent = () => {
                             {userLoginStore.loggedIn ?
                                 <>
                                     <li className="nav-item">
-                                        <Link className="nav-link" href="/wishlist" legacyBehavior>
+                                        <Link className="nav-link" href="/wishlist">
 
                                             <i className="bi bi-bag-heart-fill"> </i>Wishlist
                                         </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" href="/account" legacyBehavior>
+                                        <Link className="nav-link" href="/account">
 
                                             <i className="bi bi-person-workspace"> </i>My Account
                                         </Link>
@@ -77,7 +76,7 @@ const TopNavComponent = () => {
                                 </>
                                 :
                                 <li className="nav-item">
-                                    <Link className="nav-link" href="/login" legacyBehavior>
+                                    <Link className="nav-link" href="/login">
 
                                         <i className="bi bi-person"> </i>Log in
                                     </Link>

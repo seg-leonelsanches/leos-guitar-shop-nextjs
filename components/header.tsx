@@ -9,7 +9,7 @@ export const Header = () => (
     <div className='container my-5'>
       <div className='row'>
         <div className='col f-left'>
-          <Link href="/" legacyBehavior>
+          <Link href="/">
 
             <Image
               className="logo m-auto"
