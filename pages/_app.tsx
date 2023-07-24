@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../styles/globals.css'
 import '../components/fancy-box/fancybox.css'
+import '../configuration/i18n';
 
 import React from 'react';
 import App from 'next/app';
