@@ -55,7 +55,7 @@ const TopNavComponent = () => {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" href="/cart">
+                                <Link className="nav-link" href="/cart" legacyBehavior>
 
                                     <i className="bi bi-cart"> </i>My Cart
                                 </Link>
@@ -63,13 +63,13 @@ const TopNavComponent = () => {
                             {userLoginStore.loggedIn ?
                                 <>
                                     <li className="nav-item">
-                                        <Link className="nav-link" href="/wishlist">
+                                        <Link className="nav-link" href="/wishlist" legacyBehavior>
 
                                             <i className="bi bi-bag-heart-fill"> </i>Wishlist
                                         </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" href="/account">
+                                        <Link className="nav-link" href="/account" legacyBehavior>
 
                                             <i className="bi bi-person-workspace"> </i>My Account
                                         </Link>
@@ -77,7 +77,7 @@ const TopNavComponent = () => {
                                 </>
                                 :
                                 <li className="nav-item">
-                                    <Link className="nav-link" href="/login">
+                                    <Link className="nav-link" href="/login" legacyBehavior>
 
                                         <i className="bi bi-person"> </i>Log in
                                     </Link>
