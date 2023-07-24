@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { observer } from 'mobx-react';
 import { useMobxStores } from '../data/stores';
 import { UserLoginStore } from '../data/stores/user-login';
+import { useRouter } from 'next/router';
 
 interface WelcomeMessageProps {
     userLoginStore: UserLoginStore;
@@ -13,7 +14,7 @@ interface WelcomeMessageProps {
 const WelcomeMessageComponent: React.FunctionComponent<WelcomeMessageProps> = (props) => {
     let welcomeMessage = 'Welcome!';
     if (props.userLoginStore.loggedIn) {
-        console.log('props.userLoginStore.registrationComplete', props.userLoginStore.registrationComplete)
+        // console.log('props.userLoginStore.registrationComplete', props.userLoginStore.registrationComplete)
         if (props.userLoginStore.registrationComplete !== true) {
             return <h6>
                 Welcome! Please take some time to <Link href='/account'>review your account information</Link>.
@@ -32,6 +33,7 @@ const WelcomeMessage = observer(WelcomeMessageComponent)
 
 const TopNavComponent = () => {
     const { userLoginStore } = useMobxStores();
+    const router = useRouter();
 
     return (
         <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
@@ -42,6 +44,16 @@ const TopNavComponent = () => {
                     </div>
                     <div className='col'>
                         <ul className="navbar-nav float-end">
+                            <li className='nav-item'>
+                                <a href={`/pt-BR${router.asPath}`} className='nav-link'>
+                                    <span className="fi fi-br"></span>
+                                </a>
+                            </li>
+                            <li className='nav-item'>
+                                <a href={`/en-US${router.asPath}`} className='nav-link'>
+                                    <span className="fi fi-us"></span>
+                                </a>
+                            </li>
                             <li className="nav-item">
                                 <Link className="nav-link" href="/cart">
 
