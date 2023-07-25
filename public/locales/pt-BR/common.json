@@ -1,3 +1,16 @@
 {
-    "Search": "Pesquisar"
+    "Featured": "Em destaque",
+    "Login": "Entrar",
+    "MyAccount": "Minha conta",
+    "MyCart": "Meu carrinho",
+    "Newsletter": "Boletim informativo",
+    "NewsletterDescription": "Receba as últimas notícias, atualizações e ofertas direto no seu e-mail!",
+    "Search": "Pesquisar",
+    "ShopDescription": "Esta é uma loja bacanésima de demonstração de eventos da Segment.",
+    "ReviewYourInfo": {
+        "PleaseTakeSomeTimeTo": "Por favor, reserve um tempo para",
+        "ReviewYourInfo": "revisar suas informações de conta"
+    },
+    "Welcome": "Bem-vindo!",
+    "Wishlist": "Lista de desejos"
 }

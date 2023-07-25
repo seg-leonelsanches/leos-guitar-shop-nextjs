@@ -6,20 +6,22 @@ import { observer } from 'mobx-react';
 import { useMobxStores } from '../data/stores';
 import { UserLoginStore } from '../data/stores/user-login';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 interface WelcomeMessageProps {
     userLoginStore: UserLoginStore;
 }
 
 const WelcomeMessageComponent: React.FunctionComponent<WelcomeMessageProps> = (props) => {
-    let welcomeMessage = 'Welcome!';
+    const { t, i18n } = useTranslation();
+    let welcomeMessage = t('Welcome');
     if (props.userLoginStore.loggedIn) {
         if (props.userLoginStore.registrationComplete !== true) {
             return <h6>
-                Welcome! Please take some time to <Link href='/account'>review your account information</Link>.
+                {t('Welcome')}! {t('ReviewYourInfo.PleaseTakeSomeTimeTo')} <Link href='/account'>{t('ReviewYourInfo.ReviewYourInfo')}</Link>.
             </h6>;
         } else {
-            welcomeMessage = `Welcome, ${props.userLoginStore.firstName} ${props.userLoginStore.lastName}.`;
+            welcomeMessage = `${t('Welcome')}, ${props.userLoginStore.firstName} ${props.userLoginStore.lastName}.`;
         }
     }
 
@@ -32,6 +34,7 @@ const WelcomeMessage = observer(WelcomeMessageComponent)
 
 const TopNavComponent = () => {
     const { userLoginStore } = useMobxStores();
+    const { t, i18n } = useTranslation();
     const router = useRouter();
 
     return (
@@ -43,7 +46,7 @@ const TopNavComponent = () => {
                     </div>
                     <div className='col'>
                         <ul className="navbar-nav float-end">
-                            {/* <li className='nav-item'>
+                            <li className='nav-item'>
                                 <a href={`/pt-BR${router.asPath}`} className='nav-link'>
                                     <span className="fi fi-br"></span>
                                 </a>
@@ -52,11 +55,11 @@ const TopNavComponent = () => {
                                 <a href={`/en-US${router.asPath}`} className='nav-link'>
                                     <span className="fi fi-us"></span>
                                 </a>
-                            </li> */}
+                            </li>
                             <li className="nav-item">
                                 <Link className="nav-link" href="/cart">
 
-                                    <i className="bi bi-cart"> </i>My Cart
+                                    <i className="bi bi-cart"> </i>{t('MyCart')}
                                 </Link>
                             </li>
                             {userLoginStore.loggedIn ?
@@ -64,13 +67,13 @@ const TopNavComponent = () => {
                                     <li className="nav-item">
                                         <Link className="nav-link" href="/wishlist">
 
-                                            <i className="bi bi-bag-heart-fill"> </i>Wishlist
+                                            <i className="bi bi-bag-heart-fill"> </i>{t('Wishlist')}
                                         </Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" href="/account">
 
-                                            <i className="bi bi-person-workspace"> </i>My Account
+                                            <i className="bi bi-person-workspace"> </i>{t('MyAccount')}
                                         </Link>
                                     </li>
                                 </>
@@ -78,7 +81,7 @@ const TopNavComponent = () => {
                                 <li className="nav-item">
                                     <Link className="nav-link" href="/login">
 
-                                        <i className="bi bi-person"> </i>Log in
+                                        <i className="bi bi-person"> </i>{t('Login')}
                                     </Link>
                                 </li>
                             }

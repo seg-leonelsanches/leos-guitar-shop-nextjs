@@ -7,9 +7,11 @@ import styles from '../styles/Home.module.css'
 import { GuitarCatalog } from '../components/index-page'
 import { useAnalytics } from '../hooks'
 import { useEffect } from 'react'
+import { useTranslation } from 'next-i18next'
 
 const Home: NextPage = () => {
     const analytics = useAnalytics()
+    const { t, i18n } = useTranslation();
     const title: string = "Leo's Guitar Shop"
 
     useEffect(() => {
@@ -28,7 +30,7 @@ const Home: NextPage = () => {
                 <div className='row'>
                     <div className='col'>
                         <h2 className='title'>
-                            Featured
+                            {t('Featured')}
                         </h2>
                     </div>
                 </div>

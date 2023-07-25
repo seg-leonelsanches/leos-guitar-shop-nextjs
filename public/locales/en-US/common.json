@@ -1,3 +1,16 @@
 {
-    "Search": "Search"
+    "Featured": "Featured",
+    "Login": "Login",
+    "MyAccount": "My Account",
+    "MyCart": "My Cart",
+    "Newsletter": "Newsletter",
+    "NewsletterDescription": "Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!",
+    "Search": "Search",
+    "ShopDescription": "This is a cool guitar store crafted to test Segment events.",
+    "ReviewYourInfo": {
+        "PleaseTakeSomeTimeTo": "Please take some time to",
+        "ReviewYourInfo": "Review your account information"
+    },
+    "Welcome": "Welcome!",
+    "WishList": "Wishlist"
 }
