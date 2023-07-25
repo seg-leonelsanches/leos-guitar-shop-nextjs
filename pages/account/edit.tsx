@@ -4,14 +4,17 @@ import Head from "next/head";
 import { useMobxStores } from "../../data/stores";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useEffect } from "react";
 
 const EditAccount: NextPage = () => {
   const { userLoginStore } = useMobxStores();
   const router = useRouter();
 
-  if (!userLoginStore.loggedIn) {
-    router.push("/login");
-  }
+  useEffect(() => {
+    if (!userLoginStore.loggedIn) {
+      router.push("/login");
+    }
+  }, [userLoginStore, router]);
 
   return (
     <>
