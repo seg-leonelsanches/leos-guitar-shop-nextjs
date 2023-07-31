@@ -6,10 +6,12 @@ import { useRouter } from "next/router";
 
 import { useMobxStores } from "../data/stores";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const ThankYou: NextPage = () => {
   const { cartStore } = useMobxStores();
   const router = useRouter();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     if (!cartStore.purchaseComplete) {
@@ -20,17 +22,17 @@ const ThankYou: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Thank you! - Leo's Guitar Shop</title>
+        <title>{t('ThankYou.ThankYou')} - Leo's Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row my-5 py-5">
           <div className="col">
-            <h2 className="title">Thank you!</h2>
+            <h2 className="title">{t('ThankYou.ThankYou')}</h2>
           </div>
         </div>
         <div className="row my-3">
           <div className="col">
-            <h2 className="description">Thank you for your business.</h2>
+            <h2 className="description">{t('ThankYou.ThankYouForYourBusiness')}</h2>
           </div>
         </div>
       </div>

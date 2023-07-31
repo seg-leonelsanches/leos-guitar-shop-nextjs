@@ -28,6 +28,11 @@
             "Taxes": "Impostos",
             "Total": "Total"
         },
+        "PaymentMethod": {
+            "CreditCard": "Cartão de crédito",
+            "PaymentMethod": "Método de pagamento",
+            "PayPal": "PayPal"
+        },
         "PlaceOrder": "Fazer pedido",
         "YourCartIsEmpty": "Seu carrinho está vazio."
     },
@@ -65,6 +70,10 @@
         "PleaseProvideAValidEmailAddress": "Por favor, forneça um endereço de e-mail válido.",
         "YouAreNowSubscribedToOurNewsletter": "Você está agora inscrito em nosso boletim informativo.",
         "YourEmailAddress": "Seu endereço de e-mail"
+    },
+    "ThankYou": {
+        "ThankYou": "Obrigado!",
+        "ThankYouForYourBusiness": "Obrigado por sua compra."
     },
     "Welcome": "Bem-vindo!",
     "Wishlist": "Lista de desejos"

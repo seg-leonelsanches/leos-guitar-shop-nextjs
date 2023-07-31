@@ -28,6 +28,11 @@
             "Taxes": "Taxes",
             "Total": "Total"
         },
+        "PaymentMethod": {
+            "CreditCard": "Credit Card",
+            "PaymentMethod": "Payment Method",
+            "PayPal": "PayPal"
+        },
         "PlaceOrder": "Place Order",
         "YourCartIsEmpty": "Your cart is empty."
     },
@@ -65,6 +70,10 @@
         "PleaseProvideAValidEmailAddress": "Please provide a valid email address.",
         "YouAreNowSubscribedToOurNewsletter": "You are now subscribed to our newsletter.",
         "YourEmailAddress": "Your email address"
+    },
+    "ThankYou": {
+        "ThankYou": "Thank You!",
+        "ThankYouForYourBusiness": "Thank you for your business."
     },
     "Welcome": "Welcome!",
     "WishList": "Wishlist"
