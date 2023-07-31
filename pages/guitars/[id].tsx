@@ -14,7 +14,7 @@ const GuitarDetails: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{t('ProductDetails.ProductDetails')} - Leo&apos;s Guitar Shop</title>
+        <title>{t('ProductDetails.ProductDetails')} - Leo's Guitar Shop</title>
       </Head>
       <div className="container mb-5">
         <GuitarSpecs id={Number(id)} />

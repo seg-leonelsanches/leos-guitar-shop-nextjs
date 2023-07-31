@@ -12,7 +12,7 @@ import { useTranslation } from 'next-i18next'
 const Home: NextPage = () => {
     const analytics = useAnalytics()
     const { t, i18n } = useTranslation();
-    const title: string = "Leo&apos;s Guitar Shop"
+    const title: string = "Leo's Guitar Shop"
 
     useEffect(() => {
         analytics.page("Retail Pages", "Home", {
