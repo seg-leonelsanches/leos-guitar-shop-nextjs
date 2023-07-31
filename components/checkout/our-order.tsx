@@ -1,8 +1,7 @@
-import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import { useMobxStores } from '../../data/stores';
-import { useAnalytics } from '../../hooks';
+import { useTranslation } from 'next-i18next';
 
+import { useAnalytics } from '../../hooks';
 import { ISegmentOrderInfo } from './interfaces';
 
 export interface IOurOrder {
@@ -10,7 +9,8 @@ export interface IOurOrder {
 }
 
 export const OurOrder: React.FunctionComponent<IOurOrder> = ({orderInfo}) => {
-    const analytics = useAnalytics()
+    const analytics = useAnalytics();
+    const { t, i18n } = useTranslation();
     
     useEffect(() => {
         analytics.page("Checkout Flow", "Summary", orderInfo)
@@ -19,7 +19,7 @@ export const OurOrder: React.FunctionComponent<IOurOrder> = ({orderInfo}) => {
     return <>
         <div className='row'>
             <div className='col'>
-                <h3>Our order</h3>
+                <h3>{t('Checkout.OrderDetails.OrderDetails')}</h3>
             </div>
         </div>
         <div className='row'>
@@ -37,7 +37,7 @@ export const OurOrder: React.FunctionComponent<IOurOrder> = ({orderInfo}) => {
                             <td></td>
                         </tr>
                         <tr>
-                            <td>Cart subtotal</td>
+                            <td>{t('Checkout.OrderDetails.Subtotal')}</td>
                             <td>${orderInfo.cartSubtotal.toFixed(2)}</td>
                         </tr>
                         <tr>
@@ -45,7 +45,7 @@ export const OurOrder: React.FunctionComponent<IOurOrder> = ({orderInfo}) => {
                             <td></td>
                         </tr>
                         <tr>
-                            <td>Taxes</td>
+                            <td>{t('Checkout.OrderDetails.Taxes')}</td>
                             <td>${orderInfo.taxes.toFixed(2)}</td>
                         </tr>
                         <tr>
@@ -53,7 +53,7 @@ export const OurOrder: React.FunctionComponent<IOurOrder> = ({orderInfo}) => {
                             <td></td>
                         </tr>
                         <tr>
-                            <td>Shipping</td>
+                            <td>{t('Checkout.OrderDetails.Shipping')}</td>
                             <td>${orderInfo.shipping.toFixed(2)}</td>
                         </tr>
                         <tr>
@@ -61,7 +61,7 @@ export const OurOrder: React.FunctionComponent<IOurOrder> = ({orderInfo}) => {
                             <td></td>
                         </tr>
                         <tr>
-                            <td className='text-warning'>Total</td>
+                            <td className='text-warning'>{t('Checkout.OrderDetails.Total')}</td>
                             <td className='text-warning'>${orderInfo.total.toFixed(2)}</td>
                         </tr>
                     </tbody>

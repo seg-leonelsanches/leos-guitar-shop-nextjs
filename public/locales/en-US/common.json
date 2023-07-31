@@ -19,6 +19,15 @@
             "ZipCode": "Zip Code"
         },
         "Checkout": "Checkout",
+        "OrderDetails": {
+            "OrderDetails": "Order Details",
+            "OrderSummary": "Order Summary",
+            "PlaceOrder": "Place Order",
+            "Shipping": "Shipping",
+            "Subtotal": "Subtotal",
+            "Taxes": "Taxes",
+            "Total": "Total"
+        },
         "PlaceOrder": "Place Order",
         "YourCartIsEmpty": "Your cart is empty."
     },
@@ -31,6 +40,7 @@
     "NewsletterDescription": "Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!",
     "ProductDetails": {
         "AddToWishlist": "Add to Wishlist",
+        "BuyNow": "Buy Now",
         "By": "by",
         "PleaseCheckYourCart": "Please check your cart",
         "PleaseCheckYourWishlist": "Please check your wishlist.",

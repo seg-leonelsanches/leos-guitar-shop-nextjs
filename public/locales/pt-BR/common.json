@@ -19,6 +19,15 @@
             "ZipCode": "CEP"
         },
         "Checkout": "Finalizar compra",
+        "OrderDetails": {
+            "OrderDetails": "Detalhes do pedido",
+            "OrderSummary": "Resumo do pedido",
+            "PlaceOrder": "Fazer pedido",
+            "Shipping": "Envio",
+            "Subtotal": "Subtotal",
+            "Taxes": "Impostos",
+            "Total": "Total"
+        },
         "PlaceOrder": "Fazer pedido",
         "YourCartIsEmpty": "Seu carrinho está vazio."
     },
@@ -31,6 +40,7 @@
     "NewsletterDescription": "Receba as últimas notícias, atualizações e ofertas direto no seu e-mail!",
     "ProductDetails": {
         "AddToWishlist": "Adicionar à lista de desejos",
+        "BuyNow": "Comprar agora",
         "By": "por",
         "PleaseCheckYourCart": "Por favor, verifique seu carrinho.",
         "PleaseCheckYourWishlist": "Por favor, verifique sua lista de desejos.",

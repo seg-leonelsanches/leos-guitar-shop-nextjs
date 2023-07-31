@@ -63,7 +63,7 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
             <hr />
             <h5>{t('ProductDetails.Price')}: ${guitar.price}</h5>
             <hr />
-            <button type="button" className="btn btn-primary" onClick={() => buy()}>Buy now</button>{' '}
+            <button type="button" className="btn btn-primary" onClick={() => buy()}>{t('ProductDetails.BuyNow')}</button>{' '}
             {
                 userLoginStore.loggedIn &&
                 <button type="button" className="btn btn-info" onClick={() => addToWishlist()}>
