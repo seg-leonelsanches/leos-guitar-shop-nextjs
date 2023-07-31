@@ -1,15 +1,37 @@
 {
     "Featured": "Featured",
+    "Loading": "Loading...",
     "Login": "Login",
     "MyAccount": "My Account",
     "MyCart": "My Cart",
     "Newsletter": "Newsletter",
     "NewsletterDescription": "Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!",
-    "Search": "Search",
-    "ShopDescription": "This is a cool guitar store crafted to test Segment events.",
+    "ProductDetails": {
+        "AddToWishlist": "Add to Wishlist",
+        "By": "by",
+        "PleaseCheckYourCart": "Please check your cart",
+        "PleaseCheckYourWishlist": "Please check your wishlist.",
+        "Price": "Price",
+        "ProductAddedToWishlist": "Product added to your wishlist",
+        "ProductAddedToYourCart": "Product added to your cart",
+        "ProductDetails": "Product Details"
+    },
     "ReviewYourInfo": {
         "PleaseTakeSomeTimeTo": "Please take some time to",
         "ReviewYourInfo": "Review your account information"
+    },
+    "Search": {
+        "NoMatchesFound": "No matches were found with term",
+        "SearchButton": "Search",
+        "SearchResults": "Search Results",
+        "SearchTheStore": "Search the store"
+    },
+    "ShopDescription": "This is a cool guitar store crafted to test Segment events.",
+    "Subscribe": "Subscribe",
+    "Subscription": {
+        "PleaseProvideAValidEmailAddress": "Please provide a valid email address.",
+        "YouAreNowSubscribedToOurNewsletter": "You are now subscribed to our newsletter.",
+        "YourEmailAddress": "Your email address"
     },
     "Welcome": "Welcome!",
     "WishList": "Wishlist"

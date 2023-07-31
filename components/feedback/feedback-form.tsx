@@ -56,7 +56,7 @@ class FeedbackFormInternal extends React.Component<IFeedbackFormProps> {
                 <form>
                     <div className='row'>
                         <div className="col mb-3">
-                            <label htmlFor="question1" className="form-label">Describe in one paragraph the experience of shopping at Leo's Guitar Shop.</label>
+                            <label htmlFor="question1" className="form-label">Describe in one paragraph the experience of shopping at Leo&apos;s Guitar Shop.</label>
                             <textarea className="form-control" id="question1" onChange={(event) => this.setQuestion1(event.target.value)} />
                         </div>
                     </div>

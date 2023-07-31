@@ -20,7 +20,7 @@ const ThankYou: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Thank you! - Leo's Guitar Shop</title>
+        <title>Thank you! - Leo&apos;s Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row my-5 py-5">

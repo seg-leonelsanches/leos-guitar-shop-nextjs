@@ -1,15 +1,37 @@
 {
     "Featured": "Em destaque",
+    "Loading": "Carregando...",
     "Login": "Entrar",
     "MyAccount": "Minha conta",
     "MyCart": "Meu carrinho",
     "Newsletter": "Boletim informativo",
     "NewsletterDescription": "Receba as últimas notícias, atualizações e ofertas direto no seu e-mail!",
-    "Search": "Pesquisar",
-    "ShopDescription": "Esta é uma loja bacanésima de demonstração de eventos da Segment.",
+    "ProductDetails": {
+        "AddToWishlist": "Adicionar à lista de desejos",
+        "By": "por",
+        "PleaseCheckYourCart": "Por favor, verifique seu carrinho.",
+        "PleaseCheckYourWishlist": "Por favor, verifique sua lista de desejos.",
+        "Price": "Preço",
+        "ProductAddedToWishlist": "Produto adicionado à sua lista de desejos",
+        "ProductAddedToYourCart": "Produto adicionado ao seu carrinho",
+        "ProductDetails": "Detalhes do produto"
+    },
     "ReviewYourInfo": {
         "PleaseTakeSomeTimeTo": "Por favor, reserve um tempo para",
         "ReviewYourInfo": "revisar suas informações de conta"
+    },
+    "Search": {
+        "NoMatchesFound": "Nenhum resultado encontrado com o termo",
+        "SearchButton": "Pesquisar",
+        "SearchResults": "Resultados da pesquisa",
+        "SearchTheStore": "Pesquisar na loja"
+    },
+    "ShopDescription": "Esta é uma loja bacanésima de demonstração de eventos da Segment.",
+    "Subscribe": "Inscrever-se",
+    "Subscription": {
+        "PleaseProvideAValidEmailAddress": "Por favor, forneça um endereço de e-mail válido.",
+        "YouAreNowSubscribedToOurNewsletter": "Você está agora inscrito em nosso boletim informativo.",
+        "YourEmailAddress": "Seu endereço de e-mail"
     },
     "Welcome": "Bem-vindo!",
     "Wishlist": "Lista de desejos"

@@ -19,7 +19,7 @@ const Search: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Search - Leo's Guitar Shop</title>
+        <title>Search - Leo&apos;s Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row">

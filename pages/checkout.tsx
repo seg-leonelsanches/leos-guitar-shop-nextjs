@@ -54,7 +54,7 @@ const Checkout: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Checkout - Leo's Guitar Shop</title>
+        <title>Checkout - Leo&apos;s Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row my-5 py-5">

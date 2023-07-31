@@ -21,7 +21,7 @@ const Cart = ({
   return (
     <>
       <Head>
-        <title>Your Cart - Leo's Guitar Shop</title>
+        <title>Your Cart - Leo&apos;s Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row">

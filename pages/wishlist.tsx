@@ -26,7 +26,7 @@ const Wishlist: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Wishlist - Leo's Guitar Shop</title>
+        <title>Wishlist - Leo&apos;s Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row">

@@ -7,6 +7,7 @@ import { fetcher } from "../../infrastructure";
 import { IGuitar } from "../../models";
 import { useMobxStores } from '../../data/stores';
 import { useAnalytics } from '../../hooks';
+import { useTranslation } from 'next-i18next';
 
 export interface IGuitarSpecs {
     id: number
@@ -15,6 +16,7 @@ export interface IGuitarSpecs {
 export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
     const { cartStore, wishlistStore, userLoginStore } = useMobxStores()
     const analytics = useAnalytics()
+    const { t, i18n } = useTranslation();
 
     const { data } = useSWR(`/api/catalog/${props.id}`, fetcher)
     useEffect(() => {
@@ -25,14 +27,14 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
         }
     })
 
-    if (!data) return <>Loading...</>
+    if (!data) return <>{t('Loading')}</>
     const guitar: IGuitar = data
 
     const buy = async () => {
         try {
             await analytics.track('Product Added To Cart', guitar)
             cartStore.addGuitar(guitar)
-            alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your cart.`)
+            alert(`${t('ProductDetails.ProductAddedToYourCart')}: ${guitar.model}, ${t('ProductDetails.By')} ${guitar.manufacturer}. ${t('ProductDetails.PleaseCheckYourCart')}`)
         } catch (error: any) {
             console.error('error', error)
         }
@@ -42,7 +44,7 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
         try {
             await analytics.track('Product Added To Wishlist', guitar)
             wishlistStore.addGuitar(guitar)
-            alert(`Product added to your cart: ${guitar.model}, by ${guitar.manufacturer}. Please check your wishlist.`)
+            alert(`${t('ProductDetails.ProductAddedToWishlist')}: ${guitar.model}, ${t('ProductDetails.By')} ${guitar.manufacturer}. ${t('ProductDetails.PleaseCheckYourWishlist')}`)
         } catch (error: any) {
             console.error('error', error)
         }
@@ -59,13 +61,13 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
             <h1>{guitar.model}</h1>
             <h4>{guitar.manufacturer}</h4>
             <hr />
-            <h5>Price: ${guitar.price}</h5>
+            <h5>{t('ProductDetails.Price')}: ${guitar.price}</h5>
             <hr />
             <button type="button" className="btn btn-primary" onClick={() => buy()}>Buy now</button>{' '}
             {
                 userLoginStore.loggedIn &&
                 <button type="button" className="btn btn-info" onClick={() => addToWishlist()}>
-                    Add to Wishlist
+                    {t('ProductDetails.AddToWishlist')}
                 </button>
             }
         </div>

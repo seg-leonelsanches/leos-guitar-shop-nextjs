@@ -3,10 +3,12 @@ import React, { useState } from 'react'
 import crypto from 'crypto';
 
 import { useAnalytics } from '../../hooks'
+import { useTranslation } from 'next-i18next';
 
 export const SubscriptionForm = () => {
     const [email, setEmail] = useState('')
     const analytics = useAnalytics()
+    const { t, i18n } = useTranslation();
 
     const validateEmail = (email: string) => {
         return email
@@ -18,7 +20,7 @@ export const SubscriptionForm = () => {
     
     const subscribeToNewsletter: Function = () => {
         if (!validateEmail(email)) {
-            alert(`Please provide a valid email address.`)
+            alert(t('Subscription.PleaseProvideAValidEmailAddress'))
             return
         }
 
@@ -32,7 +34,7 @@ export const SubscriptionForm = () => {
             email
         })
 
-        alert(`You are now subscribed to our newsletter.`)
+        alert(t('Subscription.YouAreNowSubscribedToOurNewsletter'))
     }
 
     return <div className="input-group mb-3">
@@ -41,13 +43,13 @@ export const SubscriptionForm = () => {
             id="subscription-email"
             name="subscription-email"
             className="form-control"
-            placeholder="Your email address"
-            aria-label="Your email address"
+            placeholder={t('Subscription.YourEmailAddress')}
+            aria-label={t('Subscription.YourEmailAddress')}
             aria-describedby="subscribe-button" 
             onChange={(event) => setEmail(event.target.value)}/>
         <button className="btn btn-dark" type="button" id="subscribe-button" onClick={() => subscribeToNewsletter()}>
             <i className="bi bi-newspaper"> </i>
-            Subscribe
+            {t('Subscribe')}
         </button>
     </div>
 }

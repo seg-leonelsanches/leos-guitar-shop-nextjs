@@ -14,7 +14,7 @@ export const Header = () => (
             <Image
               className="logo m-auto"
               src="/logo.png"
-              alt="Leo's Guitar Shop"
+              alt="Leo&apos;s Guitar Shop"
               width={502}
               height={55}
               style={{

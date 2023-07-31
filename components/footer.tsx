@@ -18,7 +18,7 @@ export const Footer: React.FunctionComponent = () => {
                 <Image
                   className="logo m-auto"
                   src="/logo.png"
-                  alt="Leo's Guitar Shop"
+                  alt="Leo&apos;s Guitar Shop"
                   width={251}
                   height={27}
                   style={{

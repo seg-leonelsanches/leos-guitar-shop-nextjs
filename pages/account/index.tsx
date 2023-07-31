@@ -31,7 +31,7 @@ const Account: NextPage = () => {
   return (
     <>
       <Head>
-        <title>My Account - Leo's Guitar Shop</title>
+        <title>My Account - Leo&apos;s Guitar Shop</title>
       </Head>
       <div className="container mb-5">
         <div className="row">

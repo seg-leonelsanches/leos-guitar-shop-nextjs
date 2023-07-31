@@ -7,7 +7,7 @@ const Feedback: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Feedback Form - Leo's Guitar Shop</title>
+        <title>Feedback Form - Leo&apos;s Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row mb-5">

@@ -4,15 +4,17 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { GuitarSpecs } from "../../components/guitar-details";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const GuitarDetails: NextPage = () => {
   const router = useRouter();
+  const { t, i18n } = useTranslation();
   const { id } = router.query;
 
   return (
     <>
       <Head>
-        <title>Product details - Leo's Guitar Shop</title>
+        <title>{t('ProductDetails.ProductDetails')} - Leo&apos;s Guitar Shop</title>
       </Head>
       <div className="container mb-5">
         <GuitarSpecs id={Number(id)} />
