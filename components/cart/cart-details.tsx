@@ -5,6 +5,7 @@ import { observer } from 'mobx-react'
 import { IGuitar } from '../../models'
 import { CartItem } from './cart-item'
 import { useAnalytics } from '../../hooks'
+import { useTranslation } from 'next-i18next'
 
 export interface ICartDetails {
     cartItems: { guitar: IGuitar, quantity: number }[]
@@ -12,6 +13,7 @@ export interface ICartDetails {
 
 const CartDetailsComponent: React.FunctionComponent<ICartDetails> = (props) => {
     const analytics = useAnalytics()
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
         analytics.page("User Pages", "User Cart", {
@@ -20,9 +22,9 @@ const CartDetailsComponent: React.FunctionComponent<ICartDetails> = (props) => {
     })
 
     return <div className='mb-5'>
-        <h2>Your cart</h2>
+        <h2>{t('Cart.YourCart')}</h2>
         {props.cartItems.length <= 0 ?
-            <h3>There are no guitars in your cart.</h3> :
+            <h3>{t('Cart.ThereAreNoItemsInYourCart')}</h3> :
             props.cartItems.map(g => {
                 return <CartItem 
                     key={g.guitar.id}

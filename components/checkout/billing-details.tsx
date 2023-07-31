@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'next-i18next';
+
 import { useMobxStores } from '../../data/stores';
 
 export const BillingDetails: React.FunctionComponent = () => {
     const { userLoginStore } = useMobxStores();
+    const { t, i18n } = useTranslation();
     
     const [firstName, setFirstName] = useState(userLoginStore.firstName || '')
     const [lastName, setLastName] = useState(userLoginStore.lastName || '')
@@ -15,49 +18,49 @@ export const BillingDetails: React.FunctionComponent = () => {
     return <>
         <div className='row'>
             <div className='col'>
-                <h3>Billing Details</h3>
+                <h3>{t('Checkout.BillingDetails.BillingDetails')}</h3>
             </div>
         </div>
         
         <div className='row'>
             <div className="col-lg-6 mb-3">
-                <label htmlFor="first-name" className="form-label">First name</label>
+                <label htmlFor="first-name" className="form-label">{t('Checkout.BillingDetails.FirstName')}</label>
                 <input type="text" className="form-control" id="first-name" value={firstName} onChange={(event) => setFirstName(event.target.value)} />
             </div>
             <div className="col-lg-6 mb-3">
-                <label htmlFor="last-name" className="form-label">Last name</label>
+                <label htmlFor="last-name" className="form-label">{t('Checkout.BillingDetails.LastName')}</label>
                 <input type="text" className="form-control" id="last-name" value={lastName} onChange={(event) => setLastName(event.target.value)} />
             </div>
         </div>
 
         <div className='row'>
             <div className="col mb-3">
-                <label htmlFor="address-first-line" className="form-label">Address (first line)</label>
+                <label htmlFor="address-first-line" className="form-label">{t('Checkout.BillingDetails.AddressFirstLine')}</label>
                 <input type="text" className="form-control" id="address-first-line" value={addressFirstLine} onChange={(event) => setAddressFirstLine(event.target.value)} />
             </div>
         </div>
 
         <div className='row'>
             <div className="col mb-3">
-                <label htmlFor="address-second-line" className="form-label">Address (second line)</label>
+                <label htmlFor="address-second-line" className="form-label">{t('Checkout.BillingDetails.AddressSecondLine')}</label>
                 <input type="text" className="form-control" id="address-second-line" value={addressSecondLine} onChange={(event) => setAddressSecondLine(event.target.value)} />
             </div>
         </div>
 
         <div className='row'>
             <div className="col mb-3">
-                <label htmlFor="city" className="form-label">City</label>
+                <label htmlFor="city" className="form-label">{t('Checkout.BillingDetails.City')}</label>
                 <input type="text" className="form-control" id="city" value={city} onChange={(event) => setCity(event.target.value)} />
             </div>
         </div>
 
         <div className='row'>
             <div className="col-lg-6 mb-3">
-                <label htmlFor="zip-code" className="form-label">ZIP Code</label>
+                <label htmlFor="zip-code" className="form-label">{t('Checkout.BillingDetails.ZipCode')}</label>
                 <input type="text" className="form-control" id="zip-code" value={zipCode} onChange={(event) => setZipCode(event.target.value)} />
             </div>
             <div className="col-lg-6 mb-3">
-                <label htmlFor="state" className="form-label">State</label>
+                <label htmlFor="state" className="form-label">{t('Checkout.BillingDetails.State')}</label>
                 <input type="text" className="form-control" id="state" value={state} onChange={(event) => setState(event.target.value)} />
             </div>
         </div>

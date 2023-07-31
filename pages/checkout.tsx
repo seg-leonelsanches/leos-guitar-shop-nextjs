@@ -15,16 +15,18 @@ import { IGuitar } from "../models";
 import { fetcher } from "../infrastructure";
 import { useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const Checkout: NextPage = () => {
   const { cartStore } = useMobxStores();
   const router = useRouter();
   const analytics = useAnalytics();
+  const { t, i18n } = useTranslation();
 
   const [paymentMethod, setPaymentMethod] = useState("Credit Card");
 
   const { data } = useSWR("/api/catalog", fetcher);
-  if (!data) return <>Loading...</>;
+  if (!data) return <>{t('Loading')}</>;
 
   const calculatedCartItems: IGuitar[] =
     cartStore.guitars.map(
@@ -54,18 +56,18 @@ const Checkout: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Checkout - Leo&apos;s Guitar Shop</title>
+        <title>{t('Checkout.Checkout')} - Leo&apos;s Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row my-5 py-5">
           <div className="col">
-            <h2 className="title">Checkout</h2>
+            <h2 className="title">{t('Checkout.Checkout')}</h2>
           </div>
         </div>
         {cartStore.guitars.length <= 0 ? (
           <div className="row my-3">
             <div className="col">
-              <h2 className="description">Your cart is empty.</h2>
+              <h2 className="description">{t('Checkout.YourCartIsEmpty')}</h2>
             </div>
           </div>
         ) : (
@@ -89,7 +91,7 @@ const Checkout: NextPage = () => {
                   className="btn btn-success btn-lg"
                   onClick={() => placeOrder()}
                 >
-                  Place Order
+                  {t('Checkout.PlaceOrder')}
                 </button>
               </div>
             </div>

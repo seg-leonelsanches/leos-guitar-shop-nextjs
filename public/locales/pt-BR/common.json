@@ -1,4 +1,27 @@
 {
+    "Cart": {
+        "Checkout": "Finalizar compra",
+        "Quantity": "Quantidade",
+        "Remove": "Remover",
+        "ThereAreNoItemsInYourCart": "Não há itens no seu carrinho.",
+        "YourCart": "Seu carrinho"
+    },
+    "Checkout": {
+        "BillingDetails": {
+            "AddressCity": "Cidade",
+            "AddressFirstLine": "Endereço",
+            "AddressSecondLine": "Complemento",
+            "BillingDetails": "Detalhes de cobrança",
+            "City": "Cidade",
+            "FirstName": "Nome",
+            "LastName": "Sobrenome",
+            "State": "Estado",
+            "ZipCode": "CEP"
+        },
+        "Checkout": "Finalizar compra",
+        "PlaceOrder": "Fazer pedido",
+        "YourCartIsEmpty": "Seu carrinho está vazio."
+    },
     "Featured": "Em destaque",
     "Loading": "Carregando...",
     "Login": "Entrar",

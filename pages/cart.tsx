@@ -7,11 +7,14 @@ import { useMobxStores } from "../data/stores";
 import { fetcher } from "../infrastructure";
 import { IGuitar } from "../models";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const Cart = ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { cartStore } = useMobxStores();
+  const { t, i18n } = useTranslation();
+  
   const guitarCatalog: IGuitar[] = data;
   const cartItems = cartStore.guitars.map((g) => ({
     guitar: guitarCatalog.filter((gg) => gg.id === g.guitarId)[0],
@@ -21,7 +24,7 @@ const Cart = ({
   return (
     <>
       <Head>
-        <title>Your Cart - Leo&apos;s Guitar Shop</title>
+        <title>{t('Cart.YourCart')} - Leo&apos;s Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row">
@@ -31,7 +34,7 @@ const Cart = ({
           <div className="row my-5">
             <div className="col d-flex align-items-center justify-content-center">
               <Link href="/checkout" className="btn btn-warning btn-lg">
-                Checkout
+                {t('Cart.Checkout')}
               </Link>
             </div>
           </div>
