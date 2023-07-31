@@ -12,7 +12,7 @@ const Login: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Login - Leo&apos;s Guitar Shop</title>
+        <title>Login - Leo's Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row mb-5">

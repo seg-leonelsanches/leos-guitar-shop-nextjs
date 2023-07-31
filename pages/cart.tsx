@@ -24,7 +24,7 @@ const Cart = ({
   return (
     <>
       <Head>
-        <title>{t('Cart.YourCart')} - Leo&apos;s Guitar Shop</title>
+        <title>{t('Cart.YourCart')} - Leo's Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row">

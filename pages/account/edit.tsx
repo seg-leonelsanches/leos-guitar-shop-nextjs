@@ -19,7 +19,7 @@ const EditAccount: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Edit your User Information - Leo&apos;s Guitar Shop</title>
+        <title>Edit your User Information - Leo's Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row mb-5">
