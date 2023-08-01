@@ -1,6 +1,5 @@
 import { makeObservable, observable, action } from "mobx"
 import { makePersistable } from 'mobx-persist-store';
-import localforage from "localforage";
 
 export class ConsentStore {
     accepted: boolean = false
@@ -13,7 +12,7 @@ export class ConsentStore {
 
         makePersistable(this, { 
             name: 'ConsentStore', 
-            storage: localforage,
+            storage: typeof window !== "undefined" ? window.localStorage : undefined,
             properties: ['accepted']
         })
         

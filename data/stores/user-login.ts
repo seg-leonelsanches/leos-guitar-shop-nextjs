@@ -1,6 +1,5 @@
 import { makeObservable, observable, action } from "mobx"
 import { makePersistable } from 'mobx-persist-store';
-import localforage from "localforage";
 
 import { UserAddressModel } from "../state-models/user-address";
 
@@ -34,7 +33,7 @@ export class UserLoginStore {
 
         makePersistable(this, { 
             name: 'UserLoginStore',
-            storage: localforage,
+            storage: typeof window !== "undefined" ? window.localStorage : undefined,
             properties: [
                 'id', 
                 'email', 
