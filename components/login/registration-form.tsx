@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import crypto from 'crypto';
+import { observer } from 'mobx-react';
+import { useTranslation } from 'next-i18next';
 
 import { UserAddressModel } from '../../data/state-models';
 import { useMobxStores } from '../../data/stores';
 import { useAnalytics } from '../../hooks';
-import { observer } from 'mobx-react';
 
 export interface RegistrationFormProps {
     actionButtonLabel: string
@@ -16,6 +17,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
     const { userLoginStore } = useMobxStores()
     const analytics = useAnalytics()
     const router = useRouter()
+    const { t, i18n } = useTranslation();
 
     const [firstName, setFirstName] = useState(userLoginStore.firstName || '')
     const [lastName, setLastName] = useState(userLoginStore.lastName || '')
@@ -67,7 +69,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
             preferredLanguage: 'English'
         });
 
-        analytics.track('Signed Up', {
+        analytics.track(t('Segment.Track.SignedUp'), {
             method: 'Website',
             firstName: userLoginStore.firstName,
             lastName: userLoginStore.lastName,
@@ -81,7 +83,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
         <form>
             <div className='row'>
                 <div className="col-lg-6 mb-3">
-                    <label htmlFor="first-name" className="form-label">First name</label>
+                    <label htmlFor="first-name" className="form-label">{t('MyAccount.FirstName')}</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -91,7 +93,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
                     />
                 </div>
                 <div className="col-lg-6 mb-3">
-                    <label htmlFor="last-name" className="form-label">Last name</label>
+                    <label htmlFor="last-name" className="form-label">{t('MyAccount.LastName')}</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -104,7 +106,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
 
             <div className='row'>
                 <div className="col mb-3">
-                    <label htmlFor="address-first-line" className="form-label">Address (first line)</label>
+                    <label htmlFor="address-first-line" className="form-label">{t('MyAccount.AddressFirstLine')}</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -117,7 +119,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
 
             <div className='row'>
                 <div className="col mb-3">
-                    <label htmlFor="address-second-line" className="form-label">Address (second line)</label>
+                    <label htmlFor="address-second-line" className="form-label">{t('MyAccount.AddressSecondLine')}</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -130,7 +132,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
 
             <div className='row'>
                 <div className="col mb-3">
-                    <label htmlFor="city" className="form-label">City</label>
+                    <label htmlFor="city" className="form-label">{t('MyAccount.City')}</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -143,7 +145,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
 
             <div className='row'>
                 <div className="col-lg-6 mb-3">
-                    <label htmlFor="zip-code" className="form-label">ZIP Code</label>
+                    <label htmlFor="zip-code" className="form-label">{t('MyAccount.ZipCode')}</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -153,7 +155,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
                     />
                 </div>
                 <div className="col-lg-6 mb-3">
-                    <label htmlFor="state" className="form-label">State</label>
+                    <label htmlFor="state" className="form-label">{t('MyAccount.State')}</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -166,7 +168,7 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
 
             <div className='row'>
                 <div className="col-lg-6 mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
+                    <label htmlFor="email" className="form-label">{t('MyAccount.EmailAddress')}</label>
                     <input 
                         type="email" 
                         className="form-control" 
@@ -175,10 +177,10 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
                         value={email}
                         onChange={(event) => setEmail(event.target.value)} 
                     />
-                    <div id="email-help-2" className="form-text">We&apos;ll never share your email with anyone else.</div>
+                    <div id="email-help-2" className="form-text">{t('MyAccount.WeWillNeverShareYourEmailWithAnyoneElse')}</div>
                 </div>
                 <div className="col-lg-6 mb-3">
-                <label htmlFor="login-phone" className="form-label">Phone number</label>
+                <label htmlFor="login-phone" className="form-label">{t('MyAccount.PhoneNumber')}</label>
                     <input type="tel" 
                         className="form-control" 
                         id="login-phone" 
@@ -186,20 +188,20 @@ export const RegistrationFormComponent: React.FunctionComponent<RegistrationForm
                         value={phoneNumber}
                         onChange={(event) => setPhoneNumber(event.target.value)} 
                     />
-                    <div id="phone-help" className="form-text">Please add your phone with the country code.</div>
+                    <div id="phone-help" className="form-text">{t('MyAccount.PleaseAddYourPhoneWithContryCode')}</div>
                 </div>
             </div>
 
             <div className='row'>
                 <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
+                    <label htmlFor="password" className="form-label">{t('MyAccount.Password')}</label>
                     <input type="password" className="form-control" id="password" onChange={(event) => setPassword(event.target.value)} />
                 </div>
             </div>
 
             <div className='row'>
                 <div className="mb-3">
-                    <label htmlFor="confirm-password" className="form-label">Confirm password</label>
+                    <label htmlFor="confirm-password" className="form-label">{t('MyAccount.ConfirmPassword')}</label>
                     <input type="password" className="form-control" id="confirm-password" onChange={(event) => setConfirmPassword(event.target.value)} />
                 </div>
             </div>
