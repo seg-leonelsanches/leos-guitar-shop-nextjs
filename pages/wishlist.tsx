@@ -3,16 +3,18 @@ import { useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 import { useMobxStores } from "../data/stores";
 import { WishlistDetails } from "../components/wishlist";
 import { useAnalytics } from "../hooks";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Wishlist: NextPage = () => {
   const { userLoginStore } = useMobxStores();
   const router = useRouter();
   const analytics = useAnalytics();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     if (!userLoginStore.loggedIn) {
@@ -20,13 +22,13 @@ const Wishlist: NextPage = () => {
       return;
     }
 
-    analytics.page("User Pages", "Wishlist");
+    analytics.page(t('Segment.Page.UserPages.UserPages'), t('Segment.Page.UserPages.Wishlist'));
   });
 
   return (
     <>
       <Head>
-        <title>Wishlist - Leo&apos;s Guitar Shop</title>
+        <title>{t('WishList')} - Leo's Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row">

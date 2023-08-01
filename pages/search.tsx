@@ -1,17 +1,21 @@
+import { useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useTranslation } from "next-i18next";
+
 import { SearchResults } from "../components/search/search-results";
 import { useAnalytics } from "../hooks";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
+
 const Search: NextPage = () => {
   const router = useRouter();
   const analytics = useAnalytics();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    analytics.page("Retail Pages", "Search", {
+    analytics.page(t('Segment.Page.RetailPages.RetailPages'), t('Segment.Page.RetailPages.Search'), {
       searchTerm: router.query.term,
     });
   });
@@ -19,7 +23,7 @@ const Search: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Search - Leo&apos;s Guitar Shop</title>
+        <title>{t('Search.SearchResults')} - Leo's Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row">

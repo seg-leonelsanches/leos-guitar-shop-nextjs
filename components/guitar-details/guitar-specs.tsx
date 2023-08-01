@@ -21,7 +21,7 @@ export const GuitarSpecs: React.FunctionComponent<IGuitarSpecs> = (props) => {
     const { data } = useSWR(`/api/catalog/${props.id}`, fetcher)
     useEffect(() => {
         if (data) {
-            analytics.page("Retail Pages", "Product Details", {
+            analytics.page(t('Segment.Page.RetailPages.RetailPages'), t('Segment.Page.RetailPages.ProductDetails'), {
                 guitar
             })
         }

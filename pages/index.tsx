@@ -15,7 +15,7 @@ const Home: NextPage = () => {
     const title: string = "Leo's Guitar Shop"
 
     useEffect(() => {
-        analytics.page("Retail Pages", "Home", {
+        analytics.page(t('Segment.Page.RetailPages.RetailPages'), t('Segment.Page.RetailPages.Home'), {
             title
         })
     })

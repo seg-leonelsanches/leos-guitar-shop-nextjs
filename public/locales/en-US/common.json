@@ -39,7 +39,14 @@
     "Featured": "Featured",
     "Loading": "Loading...",
     "Login": "Login",
-    "MyAccount": "My Account",
+    "MyAccount": {
+        "EditYourUserData": "Edit your User Data",
+        "Email": "Email",
+        "Logout": "Logout",
+        "MyAccount": "My Account",
+        "Name": "Name",
+        "PhoneNumber": "Phone Number"
+    },
     "MyCart": "My Cart",
     "Newsletter": "Newsletter",
     "NewsletterDescription": "Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!",
@@ -63,6 +70,35 @@
         "SearchButton": "Search",
         "SearchResults": "Search Results",
         "SearchTheStore": "Search the store"
+    },
+    "Segment": {
+        "Page": {
+            "CheckoutFlow": {
+                "CheckoutFlow": "Checkout Flow",
+                "Summary": "Summary"
+            },
+            "RetailPages": {
+                "Home": "Home",
+                "ProductDetails": "Product Details",
+                "RetailPages": "Retail Pages",
+                "Search": "Search"
+            },
+            "UserPages": {
+                "Account": "Account",
+                "UserCart": "User Cart",
+                "UserPages": "User Pages",
+                "Wishlist": "Wishlist"
+            }
+        },
+        "Track": {
+            "FeedbackSubmitted": "Feedback Submitted",
+            "NewsletterSignedUp": "Newsletter Signed Up",
+            "OrderPlaced": "Order Placed",
+            "ProductAddedToCart": "Product Added to Cart",
+            "ProductAddedToWishlist": "Product Added to Wishlist",
+            "SignedIn": "Signed In",
+            "SignedUp": "Signed Up"
+        }
     },
     "ShopDescription": "This is a cool guitar store crafted to test Segment events.",
     "Subscribe": "Subscribe",

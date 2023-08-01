@@ -13,7 +13,7 @@ export const OurOrder: React.FunctionComponent<IOurOrder> = ({orderInfo}) => {
     const { t, i18n } = useTranslation();
     
     useEffect(() => {
-        analytics.page("Checkout Flow", "Summary", orderInfo)
+        analytics.page(t('Segment.Page.CheckoutFlow.CheckoutFlow'), t('Segment.Page.CheckoutFlow.Summary'), orderInfo)
     })
     
     return <>

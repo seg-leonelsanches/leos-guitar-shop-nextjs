@@ -16,7 +16,7 @@ const CartDetailsComponent: React.FunctionComponent<ICartDetails> = (props) => {
     const { t, i18n } = useTranslation();
 
     useEffect(() => {
-        analytics.page("User Pages", "User Cart", {
+        analytics.page(t('Segment.Page.UserPages.UserPages'), t('Segment.Page.UserPages.UserCart'), {
             cart: props.cartItems
         })
     })

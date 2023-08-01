@@ -39,7 +39,14 @@
     "Featured": "Em destaque",
     "Loading": "Carregando...",
     "Login": "Entrar",
-    "MyAccount": "Minha conta",
+    "MyAccount": {
+        "EditYourUserData": "Editar seus dados de usuário",
+        "Email": "E-mail",
+        "Logout": "Sair",
+        "MyAccount": "Minha conta",
+        "Name": "Nome",
+        "PhoneNumber": "Telefone"
+    },
     "MyCart": "Meu carrinho",
     "Newsletter": "Boletim informativo",
     "NewsletterDescription": "Receba as últimas notícias, atualizações e ofertas direto no seu e-mail!",
@@ -63,6 +70,35 @@
         "SearchButton": "Pesquisar",
         "SearchResults": "Resultados da pesquisa",
         "SearchTheStore": "Pesquisar na loja"
+    },
+    "Segment": {
+        "Page": {
+            "CheckoutFlow": {
+                "CheckoutFlow": "Fluxo de finalização de compra",
+                "Summary": "Resumo"
+            },
+            "RetailPages": {
+                "Home": "Página Inicial",
+                "ProductDetails": "Detalhes do Produto",
+                "RetailPages": "Páginas de Varejo",
+                "Search": "Pesquisa"
+            },
+            "UserPages": {
+                "Account": "Conta",
+                "UserCart": "Carrinho do Usuário",
+                "UserPages": "Páginas de Usuário",
+                "Wishlist": "Lista de Desejos"
+            }
+        },
+        "Track": {
+            "FeedbackSubmitted": "Feedback Enviado",
+            "NewsletterSignedUp": "Inscrito em Newsletter",
+            "OrderPlaced": "Pedido Feito",
+            "ProductAddedToCart": "Produto Adicionado ao Carrinho",
+            "ProductAddedToWishlist": "Produto Adicionado à Lista de Desejos",
+            "SignedIn": "Usuário Autenticado",
+            "SignedUp": "Novo Usuário Registrado"
+        }
     },
     "ShopDescription": "Esta é uma loja bacanésima de demonstração de eventos da Segment.",
     "Subscribe": "Inscrever-se",

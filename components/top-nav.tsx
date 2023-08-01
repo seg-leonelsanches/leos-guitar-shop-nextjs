@@ -73,7 +73,7 @@ const TopNavComponent = () => {
                                     <li className="nav-item">
                                         <Link className="nav-link" href="/account">
 
-                                            <i className="bi bi-person-workspace"> </i>{t('MyAccount')}
+                                            <i className="bi bi-person-workspace"> </i>{t('MyAccount.MyAccount')}
                                         </Link>
                                     </li>
                                 </>
