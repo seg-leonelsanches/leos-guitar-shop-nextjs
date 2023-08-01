@@ -1,5 +1,6 @@
 import { makeObservable, observable, action } from "mobx"
 import { makePersistable } from 'mobx-persist-store';
+import localforage from "localforage";
 
 import { IGuitar } from "../../models"
 import { GuitarModel } from "../state-models"
@@ -20,7 +21,7 @@ export class CartStore {
 
         makePersistable(this, { 
             name: 'CartStore', 
-            storage: window.localStorage,
+            storage: localforage,
             properties: ['guitars']
         })
         

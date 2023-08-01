@@ -1,5 +1,6 @@
 import { makeObservable, observable, action } from "mobx"
 import { makePersistable } from 'mobx-persist-store';
+import localforage from "localforage";
 
 import { IGuitar } from "../../models"
 
@@ -15,7 +16,7 @@ export class WishlistStore {
 
         makePersistable(this, { 
             name: 'WishlistStore', 
-            storage: window.localStorage,
+            storage: localforage,
             properties: ['guitars']
         })
         
