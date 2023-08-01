@@ -31,7 +31,8 @@ export class UserLoginStore {
         })
 
         makePersistable(this, { 
-            name: 'UserLoginStore', 
+            name: 'UserLoginStore',
+            storage: window.localStorage,
             properties: [
                 'id', 
                 'email', 

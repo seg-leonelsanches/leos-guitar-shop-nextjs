@@ -20,6 +20,7 @@ export class CartStore {
 
         makePersistable(this, { 
             name: 'CartStore', 
+            storage: window.localStorage,
             properties: ['guitars']
         })
         

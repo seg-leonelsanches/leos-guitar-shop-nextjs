@@ -12,6 +12,7 @@ export class ConsentStore {
 
         makePersistable(this, { 
             name: 'ConsentStore', 
+            storage: window.localStorage,
             properties: ['accepted']
         })
         

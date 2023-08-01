@@ -15,6 +15,7 @@ export class WishlistStore {
 
         makePersistable(this, { 
             name: 'WishlistStore', 
+            storage: window.localStorage,
             properties: ['guitars']
         })
         
