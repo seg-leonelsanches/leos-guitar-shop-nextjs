@@ -81,7 +81,7 @@ const TopNavComponent = () => {
                                 <li className="nav-item">
                                     <Link className="nav-link" href="/login">
 
-                                        <i className="bi bi-person"> </i>{t('Login')}
+                                        <i className="bi bi-person"> </i>{t('Login.Login')}
                                     </Link>
                                 </li>
                             }

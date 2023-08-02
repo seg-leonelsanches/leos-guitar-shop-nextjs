@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { faker } from '@faker-js/faker';
 
+import { faker } from '@faker-js/faker';
 import crypto from 'crypto';
+import { useTranslation } from 'next-i18next';
 
 import { useMobxStores } from '../../data/stores';
 import { useAnalytics } from '../../hooks';
@@ -12,7 +13,8 @@ export const LoginForm: React.FunctionComponent = () => {
     const analytics = useAnalytics()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const router = useRouter()
+    const router = useRouter();
+    const { t, i18n } = useTranslation();
 
     const login: Function = () => {
         const email: string = faker.internet.email().toLowerCase();
@@ -34,7 +36,7 @@ export const LoginForm: React.FunctionComponent = () => {
             email: userLoginStore.email
         });
 
-        analytics.track('Signed In', {
+        analytics.track(t('Segment.Track.SignedIn'), {
             method: 'Website',
             firstName: userLoginStore.firstName,
             lastName: userLoginStore.lastName,
@@ -45,19 +47,19 @@ export const LoginForm: React.FunctionComponent = () => {
     }
 
     return <>
-        <h4>Returning customers</h4>
+        <h4>{t('Login.ReturningCustomers')}</h4>
         <div className='box-shadow'>
             <form>
                 <div className="mb-3">
-                    <label htmlFor="login-email" className="form-label">Email address</label>
+                    <label htmlFor="login-email" className="form-label">{t('Login.EmailAddress')}</label>
                     <input type="email" className="form-control" id="login-email" aria-describedby="email-help" onChange={(event) => setEmail(event.target.value)} />
-                    <div id="email-help" className="form-text">We'll never share your email with anyone else.</div>
+                    <div id="email-help" className="form-text">{t('Login.WeWillNeverShareYourEmailWithAnyoneElse')}</div>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="login-password" className="form-label">Password</label>
+                    <label htmlFor="login-password" className="form-label">{t('Login.Password')}</label>
                     <input type="password" className="form-control" id="login-password" onChange={(event) => setPassword(event.target.value)} />
                 </div>
-                <button type="button" className="btn btn-primary" onClick={() => login()}>Login</button>
+                <button type="button" className="btn btn-primary" onClick={() => login()}>{t('Login.Login')}</button>
             </form>
         </div>
     </>

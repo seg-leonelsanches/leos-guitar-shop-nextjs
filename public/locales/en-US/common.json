@@ -45,7 +45,13 @@
         "ThanksForYourFeedback": "Obrigado pelo seu feedback!"
     },
     "Loading": "Loading...",
-    "Login": "Login",
+    "Login": {
+        "EmailAddress": "Email Address",
+        "Login": "Login",
+        "Password": "Password",
+        "ReturningCustomers": "Returning Customers",
+        "WeWillNeverShareYourEmailWithAnyoneElse": "We will never share your email with anyone else."
+    },
     "MyAccount": {
         "AddressFirstLine": "Address (first line)",
         "AddressSecondLine": "Address (second line)",
