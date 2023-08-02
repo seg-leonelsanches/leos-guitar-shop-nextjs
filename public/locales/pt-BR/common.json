@@ -37,6 +37,13 @@
         "YourCartIsEmpty": "Seu carrinho está vazio."
     },
     "Featured": "Em destaque",
+    "Feedback": {
+        "Question1": "Descreva em um parágrafo sua experiência com a loja.",
+        "Question2": "Quais são pontos que precisamos melhorar?",
+        "Submit": "Enviar",
+        "TellUsAboutYourExperience": "Conte-nos sobre sua experiência",
+        "ThanksForYourFeedback": "Obrigado pelo seu feedback!"
+    },
     "Loading": "Carregando...",
     "Login": "Entrar",
     "MyAccount": {
@@ -56,6 +63,7 @@
         "PhoneNumber": "Telefone",
         "PleaseAddYourPhoneWithContryCode": "Por favor, adicione seu telefone com o código do país.",
         "SaveChanges": "Salvar alterações",
+        "State": "Estado",
         "WeWillNeverShareYourEmailWithAnyoneElse": "Nós nunca compartilharemos seu e-mail com mais ninguém.",
         "ZipCode": "CEP"
     },

@@ -1,12 +1,16 @@
 import React from 'react';
 
 import { AnalyticsBrowser } from '@segment/analytics-next';
+import { I18n } from 'next-i18next';
 import { NextRouter, withRouter } from 'next/router';
-import { withAnalytics } from '../../hocs';
+
+import { withAnalytics, withTranslation } from '../../hocs';
 
 export interface IFeedbackFormProps {
     analytics: AnalyticsBrowser;
     router: NextRouter;
+    t: Function;
+    i18n: I18n;
 }
 
 /**
@@ -40,38 +44,38 @@ class FeedbackFormInternal extends React.Component<IFeedbackFormProps> {
 
     submitAnswers() {
         // Send the answers to Segment
-        this.props.analytics.track('Feedback Submitted', {
+        this.props.analytics.track(this.props.t('Segment.Track.FeedbackSubmitted'), {
             question1: (this.state as any).question1,
             question2: (this.state as any).question2
         });
 
-        alert('Thanks for your feedback!');
+        alert(this.props.t('Feedback.ThanksForYourFeedback'));
         this.props.router.push('/');
     }
 
     render() {
         return <>
-            <h2>Tell us about your experience!</h2>
+            <h2>{this.props.t('Feedback.TellUsAboutYourExperience')}</h2>
             <div className='box-shadow'>
                 <form>
                     <div className='row'>
                         <div className="col mb-3">
-                            <label htmlFor="question1" className="form-label">Describe in one paragraph the experience of shopping at Leo&apos;s Guitar Shop.</label>
+                            <label htmlFor="question1" className="form-label">{this.props.t('Feedback.Question1')}</label>
                             <textarea className="form-control" id="question1" onChange={(event) => this.setQuestion1(event.target.value)} />
                         </div>
                     </div>
                     <div className='row'>
                         <div className="col mb-3">
-                            <label htmlFor="question2" className="form-label">What are points that we need to improve in our experience?</label>
+                            <label htmlFor="question2" className="form-label">{this.props.t('Feedback.Question2')}</label>
                             <textarea className="form-control" id="question2" onChange={(event) => this.setQuestion2(event.target.value)} />
                         </div>
                     </div>
 
-                    <button type="button" className="btn btn-primary" onClick={() => this.submitAnswers()}>Submit</button>
+                    <button type="button" className="btn btn-primary" onClick={() => this.submitAnswers()}>{this.props.t('Feedback.Submit')}</button>
                 </form>
             </div>
         </>;
     }
 }
 
-export const FeedbackForm = withAnalytics(withRouter(FeedbackFormInternal));
+export const FeedbackForm = withTranslation(withAnalytics(withRouter(FeedbackFormInternal)));

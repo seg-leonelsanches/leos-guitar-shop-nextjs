@@ -37,6 +37,13 @@
         "YourCartIsEmpty": "Your cart is empty."
     },
     "Featured": "Featured",
+    "Feedback": {
+        "Question1": "Describe in one paragraph the experience of shopping at Leo's Guitar Shop.",
+        "Question2": "What are points that we need to improve in our experience?",
+        "Submit": "Submit",
+        "TellUsAboutYourExperience": "Conte-nos sobre sua experiência",
+        "ThanksForYourFeedback": "Obrigado pelo seu feedback!"
+    },
     "Loading": "Loading...",
     "Login": "Login",
     "MyAccount": {
@@ -56,6 +63,7 @@
         "PhoneNumber": "Phone Number",
         "PleaseAddYourPhoneWithContryCode": "Please add your phone with country code.",
         "SaveChanges": "Save Changes",
+        "State": "State",
         "WeWillNeverShareYourEmailWithAnyoneElse": "We will never share your email with anyone else.",
         "ZipCode": "Zip Code"
     },
