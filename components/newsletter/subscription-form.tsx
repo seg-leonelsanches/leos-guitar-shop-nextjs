@@ -30,7 +30,7 @@ export const SubscriptionForm = () => {
         const id: string = shasum.digest('hex');
 
         analytics.identify(id, { email })
-        analytics.track("Newsletter Signed Up", {
+        analytics.track(t("Segment.Track.NewsletterSignedUp"), {
             email
         })
 

@@ -1,7 +1,11 @@
+import { useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 import {
   BillingDetails,
@@ -13,9 +17,6 @@ import { useMobxStores } from "../data/stores";
 import { useAnalytics } from "../hooks";
 import { IGuitar } from "../models";
 import { fetcher } from "../infrastructure";
-import { useState } from "react";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 
 const Checkout: NextPage = () => {
   const { cartStore } = useMobxStores();
@@ -49,14 +50,14 @@ const Checkout: NextPage = () => {
 
   const placeOrder: Function = () => {
     cartStore.placeOrder();
-    analytics.track("Order Placed", trackingObject);
+    analytics.track(t("Segment.Track.OrderPlaced"), trackingObject);
     router.push("/thank-you");
   };
 
   return (
     <>
       <Head>
-        <title>{t('Checkout.Checkout')} - Leo&apos;s Guitar Shop</title>
+        <title>{t('Checkout.Checkout')} - Leo's Guitar Shop</title>
       </Head>
       <div className="container">
         <div className="row my-5 py-5">
