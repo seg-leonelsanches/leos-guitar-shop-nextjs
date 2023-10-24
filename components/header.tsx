@@ -1,33 +1,30 @@
-import React from 'react'
-
 import Image from "next/legacy/image";
-import Link from 'next/link'
-import { SearchForm } from './search'
+import Link from "next/link";
+import { SearchForm } from "./search";
 
 export const Header = () => (
   <header>
-    <div className='container my-5'>
-      <div className='row'>
-        <div className='col f-left'>
+    <div className="container my-5">
+      <div className="row align-items-center">
+        <div className="col-md-6">
           <Link href="/">
-
             <Image
               className="logo m-auto"
               src="/logo.png"
-              alt="Leo&apos;s Guitar Shop"
+              alt="Leo's Guitar Shop"
               width={502}
               height={55}
               style={{
                 maxWidth: "100%",
-                height: "auto"
-              }} />
-
+                height: "auto",
+              }}
+            />
           </Link>
         </div>
-        <div className='col f-right'>
+        <div className="col-md-6">
           <SearchForm />
         </div>
       </div>
     </div>
   </header>
-)
+);
