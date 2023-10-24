@@ -1,10 +1,8 @@
-import React from "react";
-
-import Link from "next/link";
-
 import { observer } from "mobx-react";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 import { useRouter } from "next/router";
+import React from "react";
 import { useMobxStores } from "../data/stores";
 import { UserLoginStore } from "../data/stores/user-login";
 
@@ -17,6 +15,7 @@ const WelcomeMessageComponent: React.FunctionComponent<WelcomeMessageProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   let welcomeMessage = t("Welcome");
+
   if (userLoginStore.loggedIn) {
     if (userLoginStore.registrationComplete !== true) {
       return (
@@ -45,7 +44,7 @@ const TopNavComponent = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <div className="row w-100 mt-2 d-flex justify-content-between">
+        <div className="row w-100 d-flex justify-content-between">
           <div className="col my-2 mx-3">
             <WelcomeMessage userLoginStore={userLoginStore} />
           </div>
