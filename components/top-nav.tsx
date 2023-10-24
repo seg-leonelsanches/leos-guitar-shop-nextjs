@@ -41,7 +41,6 @@ const TopNavComponent = () => {
   const { userLoginStore } = useMobxStores();
   const { t, i18n } = useTranslation();
   const router = useRouter();
-  console.log({ ...userLoginStore });
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
