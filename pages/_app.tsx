@@ -10,6 +10,7 @@ import Head from "next/head";
 import TagManager from "react-gtm-module";
 
 import { appWithTranslation } from "next-i18next";
+import { Router } from "next/router";
 import { Footer, Header } from "../components";
 import { Consent } from "../components/consent";
 import { TopNav } from "../components/top-nav";
@@ -17,10 +18,14 @@ import { StoreProvider, getStores } from "../data/stores";
 import { AnalyticsProvider } from "../providers";
 
 interface AppProps {
-  initialData: any;
+  __N_SSG: boolean;
+  Component: React.FC;
+  err: undefined | Error | any;
+  pageProps: Record<any, any>;
+  router: Router;
 }
 
-const LeoApp: React.FC = ({ Component, pageProps }: Record<any, any>) => {
+const LeoApp: React.FC<AppProps> = ({ pageProps, Component }) => {
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_GTM_ID) {
       TagManager.initialize({ gtmId: process.env.NEXT_PUBLIC_GTM_ID });
