@@ -13,8 +13,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@segment/analytics-consent-tools": "^2.0.1",
     "@segment/analytics-next": "1.52.0",
-    "@segment/consent-manager": "^5.8.1",
     "@segment/in-eu": "^0.4.0",
     "axios": "^1.2.0",
     "bootstrap": "^5.2.1",

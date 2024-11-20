@@ -9,13 +9,12 @@ import App from "next/app";
 
 import Head from "next/head";
 import TagManager from "react-gtm-module";
+import { appWithTranslation } from "next-i18next";
 
 import { Footer, Header } from "../components";
 import { TopNav } from "../components/top-nav";
 import { getStores, StoreProvider } from "../data/stores";
 import { AnalyticsProvider } from "../providers";
-import { Consent } from "../components/consent";
-import { appWithTranslation } from "next-i18next";
 
 interface AppProps {
   initialData: any;
@@ -74,7 +73,6 @@ class LeoApp extends App<AppProps> {
             />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <Consent writeKey={writeKey} />
           <TopNav />
           <Header />
           <Component {...pageProps} />
