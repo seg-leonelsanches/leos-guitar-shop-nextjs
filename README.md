@@ -1,6 +1,6 @@
 # Leo's Guitar Shop
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) 13 project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -86,3 +86,7 @@ This app is deployed at https://leos-guitar-shop-nextjs.vercel.app/
 ## Google Tag Manager Testing
 
 Make sure to set a `NEXT_PUBLIC_GTM_ID` environment variable with the value equal to you GTM ID. The sites does the rest, initializing the Google data layer.
+
+## Consent
+
+When this app was implemented, [Segment Consent Manager](https://github.com/segmentio/consent-manager) was still active. There's a tag that shows what is the most recent version of this project implementing the Consent Manager. Since it is outdated and not active anymore, the Consent Manager was removed from this project, opting for an [Analytics Consent Tools](https://segment.com/docs/privacy/consent-management/configure-consent-management/#step-2-integrating-your-cmp-with-segment) custom wrapper. 
