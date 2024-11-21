@@ -1,5 +1,8 @@
 import React from 'react'
+import { observer } from 'mobx-react';
 // import { useTranslation } from 'next-i18next';
+
+import { useMobxStores } from '../../data/stores';
 
 export interface ManageConsentModalProps {
     visible: boolean;
@@ -7,11 +10,9 @@ export interface ManageConsentModalProps {
     setParentVisible: (visible: boolean) => void;
 }
 
-export const ManageConsentModal: React.FunctionComponent<ManageConsentModalProps> = (props) => {
+const ManageConsentModalComponent: React.FunctionComponent<ManageConsentModalProps> = (props) => {
     // const { t, i18n } = useTranslation();
-    const [essentialCookies, setEssentialCookies] = React.useState(true);
-    const [analyticalCookies, setAnalyticalCookies] = React.useState(false);
-    const [marketingCookies, setMarketingCookies] = React.useState(false);
+    const { consentStore } = useMobxStores();
 
     return <div className={`modal fade ${props.visible ? `d-block show` : ''}`} id="consent-management-modal" tabIndex={-1} role="dialog" aria-labelledby="consent-management-modal" aria-hidden="true">
         <div className="modal-dialog" role="document">
@@ -27,21 +28,21 @@ export const ManageConsentModal: React.FunctionComponent<ManageConsentModalProps
                 </div>
                 <div className="modal-body">
                     <div className='form-check'>
-                        <input className="form-check-input" type="checkbox" id="necessary-cookies" checked={essentialCookies} onChange={() => setEssentialCookies(!essentialCookies)}/>
+                        <input className="form-check-input" type="checkbox" id="necessary-cookies" checked={consentStore.essential} onChange={() => consentStore.setEssential(!consentStore.essential)}/>
                         <label className="form-check-label" htmlFor="necessary-cookies">
                             <strong>Essential Cookies: </strong>
                             help with the basic functionality of our website, e.g remember if you gave consent to cookies.
                         </label>
                     </div>
                     <div className='form-check'>
-                        <input className="form-check-input" type="checkbox" id="analytical-cookies" checked={analyticalCookies} onChange={() => setAnalyticalCookies(!analyticalCookies)}/>
+                        <input className="form-check-input" type="checkbox" id="analytical-cookies" checked={consentStore.analytical} onChange={() => consentStore.setAnalytical(!consentStore.analytical)}/>
                         <label className="form-check-label" htmlFor="analytical-cookies">
                             <strong>Analytical Cookies: </strong>
                             make it possible to gather statistics about the use and traffic on our website, so we can make it better.
                         </label>
                     </div>
                     <div className='form-check'>
-                        <input className="form-check-input" type="checkbox" id="marketing-cookies" checked={marketingCookies} onChange={() => setMarketingCookies(!marketingCookies)}/>
+                        <input className="form-check-input" type="checkbox" id="marketing-cookies" checked={consentStore.marketing} onChange={() => consentStore.setMarketing(!consentStore.marketing)}/>
                         <label className="form-check-label" htmlFor="marketing-cookies">
                             <strong>Marketing Cookies: </strong>
                             make it possible to show you more relevant social media content and advertisements on our website and other platforms.
@@ -50,17 +51,22 @@ export const ManageConsentModal: React.FunctionComponent<ManageConsentModalProps
                 </div>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" onClick={() => {
-                        setEssentialCookies(false);
-                        setAnalyticalCookies(false);
-                        setMarketingCookies(false);
+                        consentStore.setEssential(false);
+                        consentStore.setAnalytical(false);
+                        consentStore.setMarketing(false);
                         props.setVisible(false);
                         props.setParentVisible(false);
                     }}>
                         Deselect all
                     </button>
-                    <button type="button" className="btn btn-primary" onClick={() => props.setVisible(false)}>Save changes</button>
+                    <button type="button" className="btn btn-primary" onClick={() => { 
+                        props.setVisible(false);
+                        props.setParentVisible(false);
+                    }}>Save changes</button>
                 </div>
             </div>
         </div>
     </div>
 };
+
+export const ManageConsentModal = observer(ManageConsentModalComponent)

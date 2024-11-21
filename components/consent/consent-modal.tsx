@@ -1,8 +1,10 @@
 import React from 'react'
-import { ManageConsentModal } from './manage-consent-modal';
+import { observer } from 'mobx-react';
 // import { useTranslation } from 'next-i18next';
 
-export const ConsentModal: React.FunctionComponent = () => {
+import { ManageConsentModal } from './manage-consent-modal';
+
+const ConsentModalComponent: React.FunctionComponent = () => {
     // const { t, i18n } = useTranslation();
     const [visible, setVisible] = React.useState(true);
     const [manageConsentVisible, setManageConsentVisible] = React.useState(false);
@@ -19,3 +21,5 @@ export const ConsentModal: React.FunctionComponent = () => {
         <ManageConsentModal visible={manageConsentVisible} setVisible={setManageConsentVisible} setParentVisible={setVisible}/>
     </div>
 };
+
+export const ConsentModal = observer(ConsentModalComponent)

@@ -3,6 +3,7 @@ import { CartStore } from './cart';
 
 import { UserLoginStore } from './user-login';
 import { WishlistStore } from './wishlist';
+import { ConsentStore } from './consent-store';
 
 let clientSideStores: any;
 
@@ -10,21 +11,24 @@ export interface IStores {
   userLoginStore: UserLoginStore
   cartStore: CartStore
   wishlistStore: WishlistStore
+  consentStore: ConsentStore
 }
 
-export function getStores(initialData = { storeInitialData: {}, cartInitialData: {}, wishlistInitialData: {} }): IStores {
+export function getStores(initialData = { storeInitialData: {}, cartInitialData: {}, wishlistInitialData: {}, consentInitialData: {} }): IStores {
   if (typeof window === 'undefined') {
     return {
       userLoginStore: new UserLoginStore(initialData.storeInitialData),
       cartStore: new CartStore(initialData.cartInitialData),
-      wishlistStore: new WishlistStore(initialData.wishlistInitialData)
+      wishlistStore: new WishlistStore(initialData.wishlistInitialData),
+      consentStore: new ConsentStore(initialData.consentInitialData)
     };
   }
   if (!clientSideStores) {
     clientSideStores = {
       userLoginStore: new UserLoginStore(initialData.storeInitialData),
       cartStore: new CartStore(initialData.cartInitialData),
-      wishlistStore: new WishlistStore(initialData.wishlistInitialData)
+      wishlistStore: new WishlistStore(initialData.wishlistInitialData),
+      consentStore: new ConsentStore(initialData.consentInitialData)
     };
   }
 
