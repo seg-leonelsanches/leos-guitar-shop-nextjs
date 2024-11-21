@@ -15,6 +15,7 @@ import { Footer, Header } from "../components";
 import { TopNav } from "../components/top-nav";
 import { getStores, StoreProvider } from "../data/stores";
 import { AnalyticsProvider } from "../providers";
+import { ConsentModal } from "../components/consent/consent-modal";
 
 interface AppProps {
   initialData: any;
@@ -76,6 +77,7 @@ class LeoApp extends App<AppProps> {
           <TopNav />
           <Header />
           <Component {...pageProps} />
+          <ConsentModal />
           <Footer />
         </StoreProvider>
       </AnalyticsProvider>
