@@ -4,15 +4,9 @@ import { CartStore } from './cart';
 import { UserLoginStore } from './user-login';
 import { WishlistStore } from './wishlist';
 import { ConsentStore } from './consent-store';
+import { IStores } from './interfaces';
 
 let clientSideStores: any;
-
-export interface IStores {
-  userLoginStore: UserLoginStore
-  cartStore: CartStore
-  wishlistStore: WishlistStore
-  consentStore: ConsentStore
-}
 
 export function getStores(initialData = { storeInitialData: {}, cartInitialData: {}, wishlistInitialData: {}, consentInitialData: {} }): IStores {
   if (typeof window === 'undefined') {

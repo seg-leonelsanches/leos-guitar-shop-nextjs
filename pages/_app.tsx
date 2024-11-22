@@ -16,6 +16,7 @@ import { TopNav } from "../components/top-nav";
 import { getStores, StoreProvider } from "../data/stores";
 import { AnalyticsProvider } from "../providers";
 import { ConsentModal } from "../components/consent/consent-modal";
+import { Categories } from "@segment/analytics-consent-tools";
 
 interface AppProps {
   initialData: any;
@@ -59,9 +60,10 @@ class LeoApp extends App<AppProps> {
     // From then on, calls to `getStores()` return existing instances.
     const stores = getStores(initialData);
     const writeKey: string = String(process.env.NEXT_PUBLIC_SEGMENT_WRITE_KEY);
+    const onConsentChanged = (event: { categories: Categories }) => { return { event };};
 
     return (
-      <AnalyticsProvider writeKey={writeKey}>
+      <AnalyticsProvider writeKey={writeKey} stores={stores} onConsentChanged={onConsentChanged}>
         <StoreProvider value={stores}>
           <Head>
             <meta
@@ -77,7 +79,7 @@ class LeoApp extends App<AppProps> {
           <TopNav />
           <Header />
           <Component {...pageProps} />
-          <ConsentModal />
+          <ConsentModal onConsentChanged={onConsentChanged} />
           <Footer />
         </StoreProvider>
       </AnalyticsProvider>

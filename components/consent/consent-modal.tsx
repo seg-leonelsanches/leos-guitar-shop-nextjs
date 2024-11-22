@@ -1,10 +1,15 @@
 import React from 'react'
 import { observer } from 'mobx-react';
+import { Categories } from '@segment/analytics-consent-tools';
 // import { useTranslation } from 'next-i18next';
 
 import { ManageConsentModal } from './manage-consent-modal';
 
-const ConsentModalComponent: React.FunctionComponent = () => {
+export interface IConsentModalProps {
+    onConsentChanged: (event: { categories: Categories }) => { event: { categories: Categories } };
+}
+
+const ConsentModalComponent: React.FunctionComponent<IConsentModalProps> = (props) => {
     // const { t, i18n } = useTranslation();
     const [visible, setVisible] = React.useState(true);
     const [manageConsentVisible, setManageConsentVisible] = React.useState(false);
@@ -18,7 +23,12 @@ const ConsentModalComponent: React.FunctionComponent = () => {
         <button type="button" className="btn btn-primary btn-sm ms-3" onClick={() => setVisible(false)}>
             I Got It
         </button>
-        <ManageConsentModal visible={manageConsentVisible} setVisible={setManageConsentVisible} setParentVisible={setVisible}/>
+        <ManageConsentModal 
+            visible={manageConsentVisible} 
+            setVisible={setManageConsentVisible} 
+            setParentVisible={setVisible}
+            onConsentChanged={props.onConsentChanged}
+        />
     </div>
 };
 
